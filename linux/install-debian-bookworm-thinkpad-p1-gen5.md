@@ -115,8 +115,9 @@ sudo apt remove -y vim
 sudo curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o /usr/local/bin/vim
 sudo chmod +x /usr/local/bin/vim
 
-git clone git@github.com:imbolc/nvim.git ~/.config/
-git clone git@github.com:imbolc/notes.git ~/Documents/
+git clone git@github.com:imbolc/nvim.git ~/.config/nvim
+git clone git@github.com:imbolc/notes.git ~/Documents/notes
+
 # throws errors, could make sense to run multiple times
 vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
