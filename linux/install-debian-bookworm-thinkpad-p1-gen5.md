@@ -17,6 +17,8 @@ echo "$sudo_user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$sudo_user
 ```
 
 ### Hybrid graphics
+I don't use hybrid graphics as it doesn't allow to connect an external display
+
 ```bash
 apt install -y bumblebee-nvidia primus mesa-utils xserver-xorg-input-mouse
 ln -s /usr/share/X11/xorg.conf.d /etc/bumblebee/
@@ -39,6 +41,12 @@ glxinfo | grep "OpenGL renderer"
 Nvidia card
 ```bash
 optirun glxinfo | grep "OpenGL renderer"
+```
+
+### Qt apps scaling
+```bash
+echo 'GDK_SCALE=2' | sudo tee -a /etc/environment
+echo 'QT_SCALE_FACTOR=2' | sudo tee -a /etc/environment
 ```
 
 ### Copy dotfiles
@@ -88,7 +96,6 @@ sudo apt install \
 ```bash
 sudo apt install \
   build-essential \
-  curl \
   git \
   highlight \
   htop \
@@ -99,7 +106,6 @@ sudo apt install \
   ncdu \
   nodejs \
   npm \
-  postgresql \
   python3-pip \
   python3-venv \
   ranger \
@@ -112,7 +118,12 @@ sudo apt install \
   xz-utils \
 ```
 
-Enable password-less access to postgres
+### Postgres
+```bash
+sudo apt install postgresql
+```
+
+Enable password-less access
 ```bash
 sudo su postgres -c "cd /; createuser -s $USER"
 ```
@@ -131,11 +142,11 @@ sudo apt install \
   blueman \
   flameshot \
   gitk \
+  gnome-disk-utility \
   kazam \
   keepassxc \
   openvpn \
   qbittorrent \
-  terminator \
   vlc \
   xclip \
 ```
@@ -154,39 +165,10 @@ git clone git@github.com:imbolc/notes.git ~/Documents/notes
 vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
-### Rust
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup target add x86_64-unknown-linux-musl
-rustup component add rustfmt clippy rust-src rust-analyzer
-
-cargo install --locked \
-  bottom \
-  cargo-expand \
-  cargo-generate \
-  cargo-limit \
-  cargo-readme \
-  cargo-sync-readme \
-  cargo-watch \
-  comrak \
-  fd-find \
-  git-delta \
-  mask \
-  ripgrep \
-  rust-script \
-  rusty-hook \
-  skim \
-  sqlx-cli \
-  stylua \
-  taplo-cli \
-  tealdeer \
-  typos-cli \
-  xplr \
-```
 ### Limit CPU performance
 ```bash
 sudo apt install powercap-utils
-sudo tee -a /etc/systemd/system/cpu-powercap.service > /dev/null << EOF
+sudo tee /etc/systemd/system/cpu-powercap.service > /dev/null << EOF
 [Unit]
 Description=Limit CPU performance
 
@@ -217,4 +199,39 @@ do
     mkdir -p /data/0/$dir
     ln -s 0/$dir
 done
+```
+
+
+### Rust
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup target add x86_64-unknown-linux-musl
+rustup component add rustfmt clippy rust-src rust-analyzer
+
+# joshuto release is too old
+cargo install --git https://github.com/kamiyaa/joshuto.git --force
+
+cargo install --locked \
+    alacritty \
+    bat \
+    bottom \
+    cargo-expand \
+    cargo-generate \
+    cargo-limit \
+    cargo-readme \
+    cargo-sync-readme \
+    cargo-watch \
+    comrak \
+    fd-find \
+    git-delta \
+    mask \
+    ripgrep \
+    rust-script \
+    rusty-hook \
+    skim \
+    sqlx-cli \
+    stylua \
+    taplo-cli \
+    tealdeer \
+    typos-cli \
 ```

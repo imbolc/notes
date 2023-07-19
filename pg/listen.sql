@@ -19,10 +19,10 @@ $$ LANGUAGE plpgsql;
 -- Create a trigger to run the function on the table changes
 -- By default thiggers are created in the table schema
 CREATE TRIGGER mytable_changed
-    AFTER INSERT OR UPDATE
-    ON sandbox.mytable
-    FOR EACH ROW
-    EXECUTE PROCEDURE sandbox.notify_mytable_changes();
+AFTER INSERT OR UPDATE
+ON sandbox.mytable
+FOR EACH ROW
+EXECUTE PROCEDURE sandbox.notify_mytable_changes();
 
 -- We'll get notified on any insert or update of the table
 LISTEN mytable_changed;

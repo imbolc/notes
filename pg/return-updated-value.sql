@@ -15,8 +15,8 @@ SET name = 'Bob'
 WHERE id = 1
 RETURNING name;
 
---  name                                                                                                                                              
--- ------                                                                                                                                             
+--  name
+-- ------
 --  Bob
 
 -- To return old values we should reselect
@@ -25,8 +25,8 @@ SET name = 'Carol'
 WHERE id = 1
 RETURNING (SELECT name FROM foo WHERE id = 1) as old_name;
 
---  old_name                                                                                                                                       
--- ----------                                                                                                                                      
---  Alice                                                                                                                                          
+--  old_name
+-- ----------
+--  Alice
 
 ROLLBACK;
