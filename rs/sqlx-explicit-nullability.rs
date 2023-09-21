@@ -5,7 +5,7 @@
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
 //! dotenv = "0.15"
-//! sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 //!
 #[tokio::main]

@@ -5,10 +5,9 @@
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
 //! dotenv = "0.15"
-//! sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 
-#[allow(dead_code)]
 #[derive(Debug)]
 struct Person {
     id: i32,
@@ -16,7 +15,6 @@ struct Person {
     ocupation: Option<Ocupation>,
 }
 
-#[allow(dead_code)]
 #[derive(Debug, sqlx::Type)]
 struct Ocupation {
     id: i32,

@@ -1,5 +1,6 @@
 //! An macro_rules example
 
+#[macro_export]
 macro_rules! foo {
     // "Literal" could be a character, string, number, etc
     (greet $name:literal) => {

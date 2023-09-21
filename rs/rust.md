@@ -7,7 +7,7 @@ cargo install --locked cargo-expand cargo-tree cargo-sort cargo-watch cargo-spel
 Rustup
 ------
 - install rust stable: `rustup install stable`
-- install nightly: `rustup install nigtly`
+- install nightly: `rustup install nightly`
 - add some components: `rustup component add rustfmt clippy rust-src rust-analyzer`
 - update rust: `rustup update`
 - check current version: `rustc --version`

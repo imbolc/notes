@@ -14,10 +14,12 @@ INSERT INTO category VALUES (1, 'bar')
 ON CONFLICT (id) DO NOTHING;
 
 -- Update value if `id` exists
+-- Returns `new = true` if the row was inserted
 INSERT INTO category (id, val)
-              VALUES (1, 'bar')
+              VALUES (1, 'bar'),  (2, 'spam')
 ON CONFLICT (id) DO
-    UPDATE SET val = 'baz';
+    UPDATE SET val = 'updated'
+RETURNING xmax = 0 AS new;
 
 SELECT * FROM category;
 

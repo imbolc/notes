@@ -2,7 +2,7 @@
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
 //! dotenv = "0.15"
-//! sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 use sqlx::Row;
 
@@ -24,20 +24,20 @@ async fn main() -> sqlx::Result<()> {
     let mut tnx = db.begin().await?;
 
     sqlx::query("CREATE TYPE color AS ENUM ('red', 'green', 'blue')")
-        .execute(&mut tnx)
+        .execute(&mut *tnx)
         .await?;
     sqlx::query("CREATE TABLE colors (color color)")
-        .execute(&mut tnx)
+        .execute(&mut *tnx)
         .await?;
     sqlx::query("INSERT INTO colors VALUES ('red'), ('green')")
-        .execute(&mut tnx)
+        .execute(&mut *tnx)
         .await?;
 
     // Quering by a single enum works
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = $1")
             .bind(Color::Red)
-            .fetch_one(&mut tnx)
+            .fetch_one(&mut *tnx)
             .await?
             .get::<Color, &str>("color"),
         Color::Red
@@ -48,7 +48,7 @@ async fn main() -> sqlx::Result<()> {
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = ANY($1::color[])")
             .bind(&["blue", "red"])
-            .fetch_one(&mut tnx)
+            .fetch_one(&mut *tnx)
             .await?
             .get::<Color, &str>("color"),
         Color::Red

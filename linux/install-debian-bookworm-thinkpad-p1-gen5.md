@@ -25,6 +25,17 @@ ln -s /usr/share/X11/xorg.conf.d /etc/bumblebee/
 ```
 Uncomment `BusID` in `/etc/bumblebee/xorg.conf.nvidia`
 
+### Locales
+```bash
+apt install -y locales 
+echo "LANG=en_US.UTF-8" > /etc/default/locale
+cat > /etc/locale.gen << EOF
+en_US.UTF-8 UTF-8
+ru_RU.UTF-8 UTF-8
+EOF
+/usr/sbin/locale-gen
+```
+
 ### Restart the system
 ```bash
 systemctl reboot
@@ -131,22 +142,24 @@ sudo su postgres -c "cd /; createuser -s $USER"
 Move the db files to data drive
 ```bash
 sudo systemctl stop postgresql
-sudo mv /var/lib/postgresql /data/
-sudo ln -s /data/postgresql /var/lib/
+sudo mkdir /data/dbs
+sudo mv /var/lib/postgresql /data/dbs/
+sudo ln -s /data/dbs/postgresql /var/lib/
 sudo systemctl start postgresql
 ```
 
 ### GUI apps
 ```bash
 sudo apt install \
+  android-file-transfer \
   blueman \
   flameshot \
   gitk \
   gnome-disk-utility \
-  kazam \
   keepassxc \
   openvpn \
   qbittorrent \
+  simplescreenrecorder \
   vlc \
   xclip \
 ```
@@ -219,6 +232,7 @@ cargo install --locked \
     cargo-generate \
     cargo-limit \
     cargo-readme \
+    cargo-sort \
     cargo-sync-readme \
     cargo-watch \
     comrak \

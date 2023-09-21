@@ -1,42 +1,45 @@
 // Working with files in Rust
-use std::fs;
-use std::io::prelude::*; // for `f.lines()`
-use std::io::BufReader;
-use std::path::Path;
+use std::{
+    fs,
+    io::{self, BufRead, BufReader},
+    path::{Path, PathBuf},
+};
 
-fn main() {
+fn main() -> io::Result<()> {
     let input = "foo\nbar";
     let filename = "/tmp/foo.txt";
 
     // write into a file
-    fs::write(filename, input).expect("Unable to write file");
+    fs::write(filename, input)?;
 
     // check if the file exists
     let exists = Path::new(filename).exists();
-    assert!(exists, true);
+    assert!(exists);
 
     // read the whole file to string
-    let output = fs::read_to_string(filename).expect("Unable to read file");
+    let output = fs::read_to_string(filename)?;
     assert_eq!(input, output);
 
     // read bytes
-    let bytes = fs::read(filename).unwrap();
+    let bytes = fs::read(filename)?;
+    dbg!(bytes);
 
     // read by line
-    let f = fs::File::open(filename).unwrap();
+    let f = fs::File::open(filename)?;
     let f = BufReader::new(f);
     for line in f.lines() {
         if let Ok(line) = line {
-            println!("{}", line);
+            println!("line by line: {}", line);
         }
     }
 
-    println!("{:?}", rel_path("foo/foo.log").unwrap());
-    println!("{}", exe_name().unwrap());
+    dbg!(rel_path("foo/foo.log")?);
+    dbg!(exe_name());
+    Ok(())
 }
 
 /// A path relative to current excecutable
-fn rel_path(path: &str) -> std::io::Result<std::path::PathBuf> {
+fn rel_path(path: &str) -> io::Result<PathBuf> {
     let mut dir = std::env::current_exe()?;
     dir.pop();
     dir.push(path);

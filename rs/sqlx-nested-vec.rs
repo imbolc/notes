@@ -5,7 +5,7 @@
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
 //! dotenv = "0.15"
-//! sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 
 #[allow(dead_code)]
@@ -41,7 +41,7 @@ async fn main() -> sqlx::Result<()> {
             p.id as "id!",
             p.name as "name!",
             (SELECT ARRAY (
-                SELECT (f.id, f.name) "as Followee"
+                SELECT (f.id, f.name) as "Followee"
                 FROM people f
                 WHERE f.id = any(p.follows)
             )) as "follows!: Vec<Followee>"
