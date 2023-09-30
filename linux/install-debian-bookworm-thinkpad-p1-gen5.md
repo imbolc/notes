@@ -100,6 +100,7 @@ sudo apt install \
   libxml2-dev \
   libxmlsec1-dev \
   tk-dev \
+  xsct \
   zlib1g-dev \
 ```
 

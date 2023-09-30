@@ -1,32 +1,30 @@
 // Working with files in Rust
-use std::{
-    fs,
-    io::{self, BufRead, BufReader},
-    path::{Path, PathBuf},
-};
 
-fn main() -> io::Result<()> {
-    let input = "foo\nbar";
-    let filename = "/tmp/foo.txt";
-
-    // write into a file
-    fs::write(filename, input)?;
+fn main() -> std::io::Result<()> {
+    let filename = "/tmp/files-rs.txt";
 
     // check if the file exists
-    let exists = Path::new(filename).exists();
-    assert!(exists);
+    let _exists = std::path::Path::new(filename).exists();
 
-    // read the whole file to string
-    let output = fs::read_to_string(filename)?;
-    assert_eq!(input, output);
+    // write into a file
+    std::fs::write(filename, "foo\n")?;
 
-    // read bytes
-    let bytes = fs::read(filename)?;
-    dbg!(bytes);
+    // Read the file into a string
+    let _content = std::fs::read_to_string(filename)?;
 
-    // read by line
-    let f = fs::File::open(filename)?;
-    let f = BufReader::new(f);
+    // Read the file as bytes
+    let _bytes = std::fs::read(filename)?;
+
+    // Append a few lines to the file
+    use std::io::Write;
+    let mut f = std::fs::OpenOptions::new().append(true).open(filename)?;
+    f.write_all(b"bar\n")?;
+    f.write_all(b"baz\n")?;
+
+    // Read the file line by line
+    use std::io::BufRead;
+    let f = std::fs::File::open(filename)?;
+    let f = std::io::BufReader::new(f);
     for line in f.lines() {
         if let Ok(line) = line {
             println!("line by line: {}", line);
@@ -39,7 +37,7 @@ fn main() -> io::Result<()> {
 }
 
 /// A path relative to current excecutable
-fn rel_path(path: &str) -> io::Result<PathBuf> {
+fn rel_path(path: &str) -> std::io::Result<std::path::PathBuf> {
     let mut dir = std::env::current_exe()?;
     dir.pop();
     dir.push(path);

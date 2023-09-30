@@ -5,23 +5,23 @@
 
 ## Morning
 
-| Supplement                     | Amount  | Cost                       |
-|--------------------------------|---------|----------------------------|
-| Acetyl-L-carnitine             | 500 mg  | [$0.20][alcar-brand]       |
-| Algae oil                      | 500 mg  | [$0.45][algae-brand]       |
-| B12                            | 500 mcg | [$0.13][b12-brand]         |
-| Calcium alpha-ketoglutarate    | 500 mg  | [$0.48][cal-akg-brand]     |
-| Calcium citrate                | 1000 mg | [$0.16][cal-citrate-brand] |
-| D3                             | 1000 UI | [$0.18][d3-brand]          |
-| Fisetin[^1]                    | 125 mg  | [$0.76][fistein-brand]     |
-| MCT powder (as coffee creamer) | 6 g     | [$1.03][mct-powder-brand]  |
-| MK7+                           |         | [$0.29][mk-7-brand]        |
-| Quercetin[^1]                  | 500 mg  | [$0.23][quercetin-brand]   |
-| Spermidine                     | 5 mg    | [$0.30][spermidine-brand]  |
-| Trans-resveratrol[^1]          | 500 mg  | [$0.58][resv-brand]        |
-| TMG                            | 500 mg  | [$0.16][tmg-brand]         |
-| ch-OSA                         | 100 mg  | [$0.56][ch-osa-brand]      |
-| *Total cost*                   |         | *$5.51*                    |
+| Supplement                     | Amount  | Pills | Cost                       |
+|--------------------------------|---------|-------|----------------------------|
+| Acetyl-L-carnitine             | 500 mg  | 1     | [$0.20][alcar-brand]       |
+| Algae oil                      | 500 mg  | 1     | [$0.45][algae-brand]       |
+| B12                            | 500 mcg |       | [$0.13][b12-brand]         |
+| Calcium alpha-ketoglutarate    | 500 mg  | 1     | [$0.48][cal-akg-brand]     |
+| Calcium citrate                | 750 mg  | 3     | [$0.16][cal-citrate-brand] |
+| D3                             | 1000 UI |       | [$0.18][d3-brand]          |
+| Fisetin[^1]                    | 125 mg  | 1     | [$0.76][fistein-brand]     |
+| MCT powder (as coffee creamer) | 6 g     |       | [$1.03][mct-powder-brand]  |
+| MK7+                           |         | 1     | [$0.29][mk-7-brand]        |
+| Quercetin[^1]                  | 500 mg  | 1     | [$0.23][quercetin-brand]   |
+| Spermidine                     | 5 mg    | 1     | [$0.30][spermidine-brand]  |
+| Trans-resveratrol[^1]          | 500 mg  | 1     | [$0.58][resv-brand]        |
+| TMG                            | 500 mg  | 1     | [$0.16][tmg-brand]         |
+| ch-OSA                         | 100 mg  | 1     | [$0.56][ch-osa-brand]      |
+| *Total cost*                   |         |       | *$5.51*                    |
 
 [^1] Fisetin, Quercetin and Trans-resveratrol assumes taking with fat, that's why MCT is there
 
@@ -34,18 +34,20 @@
 | Dried blueberry | 15 g   | $0.60                   |
 | Creatine        | 5 g    | [$0.50][creatine-brand] |
 | Protein         | 56g    | [$4.82][protein-brand]  |
-| *Total cost*    |        | *$5.92*               |
+| *Total cost*    |        | *$5.92*                 |
 
 
 ## Evening
 
-| Supplement          | Amount | Cost                     |
-|---------------------|--------|--------------------------|
-| Acetyl-L-carnitine  | 500 mg | [$0.20][alcar-brand]     |
-| Berberine           | 500 mg | [$0.26][berberine-brand] |
-| Magnesium glycinate | 200 mg | [$0.19][mag-brand]       |
-| ch-OSA              | 100 mg | [$0.56][ch-osa-brand]    |
-| *Total cost*        |        | *$1.21*                  |
+| Supplement            | Amount  | Pills | Cost                         |
+| --------------------- | ------- | ----- | --------------------------   |
+| Acetyl-L-carnitine    | 500 mg  | 1     | [$0.20][alcar-brand]         |
+| Berberine             | 500 mg  | 1     | [$0.26][berberine-brand]     |
+| Magnesium glycinate   | 200 mg  | 2     | [$0.19][mag-brand]           |
+| ch-OSA                | 100 mg  | 1     | [$0.56][ch-osa-brand]        |
+| Lutein                | 20 mg   | 1     | [$0.23][lutein-brand]        |
+| Trace minerals        |         | 1     | [$0.11][trace-minerals-brand |
+| *Total cost*          |         |       | *$1.55*                      |
 
 ## Details
 
@@ -84,3 +86,5 @@
 [creatine-brand]: https://kg.iherb.com/pr/sunwarrior-sport-active-creatine-monohydrate-unflavored-10-58-oz-300-g/112272
 [berberine-brand]: https://kg.iherb.com/pr/natural-factors-wellbetx-berberine-500-mg-120-vegetarian-capsules/85657
 [mag-brand]: https://kg.iherb.com/pr/doctor-s-best-high-absorption-magnesium-100-mg-240-tablets/16567
+[lutein-brand]: https://kg.iherb.com/pr/doctor-s-best-lutein-with-lutemax-2020-20-mg-60-softgels/63505
+[trace-minerals-brand]: https://kg.iherb.com/pr/life-extension-only-trace-minerals-90-vegetarian-capsules/39328
