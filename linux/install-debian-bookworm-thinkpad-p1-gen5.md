@@ -25,6 +25,7 @@ ln -s /usr/share/X11/xorg.conf.d /etc/bumblebee/
 ```
 Uncomment `BusID` in `/etc/bumblebee/xorg.conf.nvidia`
 
+
 ### Locales
 ```bash
 apt install -y locales 
@@ -232,6 +233,7 @@ cargo install --locked \
     cargo-expand \
     cargo-generate \
     cargo-limit \
+    cargo-outdated \
     cargo-readme \
     cargo-sort \
     cargo-sync-readme \

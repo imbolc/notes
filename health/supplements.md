@@ -43,7 +43,7 @@
 | --------------------- | ------- | ----- | --------------------------   |
 | Acetyl-L-carnitine    | 500 mg  | 1     | [$0.20][alcar-brand]         |
 | Berberine             | 500 mg  | 1     | [$0.26][berberine-brand]     |
-| Magnesium glycinate   | 200 mg  | 2     | [$0.19][mag-brand]           |
+| Magnesium glycinate   | 300 mg  | 3     | [$0.19][mag-brand]           |
 | ch-OSA                | 100 mg  | 1     | [$0.56][ch-osa-brand]        |
 | Lutein                | 20 mg   | 1     | [$0.23][lutein-brand]        |
 | Trace minerals        |         | 1     | [$0.11][trace-minerals-brand |

@@ -6,6 +6,7 @@ The elements stick to the borders and wraps when there's not enough space.
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
+gap: 1em;
 ```
 
 ### Example
