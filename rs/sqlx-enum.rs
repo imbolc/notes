@@ -29,7 +29,9 @@ async fn main() -> sqlx::Result<()> {
     sqlx::query("CREATE TABLE colors (color color)")
         .execute(&mut *tnx)
         .await?;
-    sqlx::query("INSERT INTO colors VALUES ('red'), ('green')")
+    sqlx::query("INSERT INTO colors VALUES ($1), ($2)")
+        .bind(Color::Red)
+        .bind(Color::Green)
         .execute(&mut *tnx)
         .await?;
 
@@ -47,6 +49,7 @@ async fn main() -> sqlx::Result<()> {
     // Error: the trait `PgHasArrayType` is not implemented for `Color`
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = ANY($1::color[])")
+            // .bind(&[Color::Blue, Color::Red])
             .bind(&["blue", "red"])
             .fetch_one(&mut *tnx)
             .await?

@@ -3,7 +3,7 @@ BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
 
 -- Create table
 CREATE TABLE person (
-    id serial PRIMARY KEY,
+    id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
     -- Checked column
     dob timestamptz NOT NULL DEFAULT now() CHECK(dob > '1900.01.01'),

@@ -7,7 +7,7 @@ fn main() -> std::io::Result<()> {
     let _exists = std::path::Path::new(filename).exists();
 
     // write into a file
-    std::fs::write(filename, "foo\n")?;
+    // std::fs::write(filename, "foo\n")?;
 
     // Read the file into a string
     let _content = std::fs::read_to_string(filename)?;

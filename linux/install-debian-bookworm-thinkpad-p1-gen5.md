@@ -29,8 +29,9 @@ Uncomment `BusID` in `/etc/bumblebee/xorg.conf.nvidia`
 ### Locales
 ```bash
 apt install -y locales 
-echo "LANG=en_US.UTF-8" > /etc/default/locale
+echo "LANG=en_DK.UTF-8" > /etc/default/locale
 cat > /etc/locale.gen << EOF
+en_DK.UTF-8 UTF-8
 en_US.UTF-8 UTF-8
 ru_RU.UTF-8 UTF-8
 EOF
@@ -251,4 +252,61 @@ cargo install --locked \
     taplo-cli \
     tealdeer \
     typos-cli \
+```
+
+## Yandex-disk
+
+Create a mount point and save credentials
+
+```bash
+sudo apt install davfs2
+sudo mkdir /mnt/yandexdisk
+echo 'https://webdav.yandex.ru USERNAME PASSWORD' | sudo tee -a /etc/davfs2/secrets
+```
+
+Create a mount unit
+
+```bash
+cat << EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.mount
+[Unit]
+Description=Mount Yandex Disk
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=https://webdav.yandex.ru
+Where=/mnt/yandexdisk
+Options=noauto,user,uid=$USER,gid=$USER
+Type=davfs
+TimeoutSec=60
+
+[Install]
+WantedBy=remote-fs.target
+EOF
+```
+
+Create an auto-mount unit
+
+```bash
+cat << EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.automount
+[Unit]
+Description=Auto mount Yandex Disk
+After=network-online.target
+Wants=network-online.target
+
+[Automount]
+Where=/mnt/yandexdisk
+TimeoutIdleSec=300
+
+[Install]
+WantedBy=remote-fs.target
+EOF
+```
+
+Start the unit
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable mnt-yandexdisk.automount
+sudo systemctl start mnt-yandexdisk.automount
 ```

@@ -1,3 +1,4 @@
 # Pandas
 
-- number of nulls by column: `df.isnull().sum()`
+- number of `None` or `NaN` by column: `df.isnull().sum()`
+- number of duplicates in the column: `df["col"].duplicated().sum()`
