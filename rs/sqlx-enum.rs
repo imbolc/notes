@@ -17,46 +17,43 @@ enum Color {
 
 #[tokio::main]
 async fn main() -> sqlx::Result<()> {
-    // dbg!((&[Color::Blue, Color::Red]).iter().map(ToString::to_string));
-
     dotenv::dotenv().ok();
     let db = sqlx::PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await?;
-    let mut tnx = db.begin().await?;
+    let mut tx = db.begin().await?;
 
     sqlx::query("CREATE TYPE color AS ENUM ('red', 'green', 'blue')")
-        .execute(&mut *tnx)
+        .execute(&mut *tx)
         .await?;
     sqlx::query("CREATE TABLE colors (color color)")
-        .execute(&mut *tnx)
+        .execute(&mut *tx)
         .await?;
     sqlx::query("INSERT INTO colors VALUES ($1), ($2)")
         .bind(Color::Red)
         .bind(Color::Green)
-        .execute(&mut *tnx)
+        .execute(&mut *tx)
         .await?;
 
     // Quering by a single enum works
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = $1")
             .bind(Color::Red)
-            .fetch_one(&mut *tnx)
+            .fetch_one(&mut *tx)
             .await?
             .get::<Color, &str>("color"),
         Color::Red
     );
 
-    // .bind(&[Color::Blue, Color::Red])
-    // Error: the trait `PgHasArrayType` is not implemented for `Color`
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = ANY($1::color[])")
+            // Error: the trait `PgHasArrayType` is not implemented for `Color`
             // .bind(&[Color::Blue, Color::Red])
             .bind(&["blue", "red"])
-            .fetch_one(&mut *tnx)
+            .fetch_one(&mut *tx)
             .await?
             .get::<Color, &str>("color"),
         Color::Red
     );
 
-    tnx.rollback().await?;
+    tx.rollback().await?;
     Ok(())
 }
