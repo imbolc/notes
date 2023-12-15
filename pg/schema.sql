@@ -6,11 +6,14 @@ CREATE TABLE person (
     id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
     -- Checked column
-    dob timestamptz NOT NULL DEFAULT now() CHECK(dob > '1900.01.01'),
+    dob timestamptz NOT NULL DEFAULT now() 
+        CONSTRAINT dob_min CHECK(dob > '1900.01.01')
+        CONSTRAINT dob_max CHECK(dob < '2000.01.01'),
+
     dod timestamptz,
 
     -- Table level check evaluated when any column in the table is updated
-    CHECK (dod > dob)
+    CONSTRAINT born_before_death CHECK (dod > dob)
 );
 
 -- Comments
