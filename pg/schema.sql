@@ -5,7 +5,10 @@ BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
 CREATE TABLE person (
     id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
-    -- Checked column
+    -- Trimmed text column
+    name text CONSTRAINT name_trimmed CHECK (name = TRIM(name)),
+
+    -- Constrains
     dob timestamptz NOT NULL DEFAULT now() 
         CONSTRAINT dob_min CHECK(dob > '1900.01.01')
         CONSTRAINT dob_max CHECK(dob < '2000.01.01'),
@@ -19,7 +22,6 @@ CREATE TABLE person (
 -- Comments
 COMMENT ON TABLE  person IS 'An example table';
 COMMENT ON COLUMN person.dob IS 'Date of birth';
-COMMENT ON COLUMN person.dod IS 'Date of death';
 
 -- Add a column
 ALTER TABLE person ADD COLUMN age int NOT NULL;
@@ -38,6 +40,7 @@ ALTER TABLE person ALTER COLUMN age DROP NOT NULL;
 
 -- Add constrains
 ALTER TABLE person ALTER COLUMN age SET NOT NULL;
+ALTER TABLE person ADD CONSTRAINT age_positive CHECK (age > 0);
 
 -- Rename a column
 ALTER TABLE person RENAME COLUMN age TO lived;
