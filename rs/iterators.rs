@@ -1,34 +1,42 @@
+use std::fmt::Display;
+
 fn main() {
-    let list: Vec<_> = (0..10).collect();
+    print_iterator(['a', 'b']);
+    print_iterator(&['c', 'd']);
+    print_iterator(vec!['e', 'f']);
 
-    for (index, item) in list.iter().enumerate() {
-        println!("{}: {}", index, item);
-    }
-
-    for i in Counter::new().skip(1).filter(|x| x % 2 == 0) {
-        println!("{}", i);
-    }
+    print_iterator(powers_of_two());
+    print_iterator(PowerOfTwo::default());
 }
 
-struct Counter {
-    count: u32,
-}
-
-impl Counter {
-    fn new() -> Counter {
-        Counter { count: 0 }
+/// Accepting iterator
+fn print_iterator(items: impl IntoIterator<Item = impl Display>) {
+    for item in items.into_iter() {
+        println!("{item}");
     }
 }
 
-impl Iterator for Counter {
-    type Item = u32;
+/// Returning an iterator
+fn powers_of_two() -> impl Iterator<Item = usize> {
+    (0..3).map(|i| 2_usize.pow(i))
+}
 
-    fn next(&mut self) -> Option<u32> {
-        if self.count > 5 {
+/// Implementing iterator
+#[derive(Default)]
+struct PowerOfTwo {
+    exp: u32,
+}
+
+impl Iterator for PowerOfTwo {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.exp >= 3 {
             None
         } else {
-            self.count += 1;
-            Some(self.count)
+            let n = 2_usize.pow(self.exp);
+            self.exp += 1;
+            Some(n)
         }
     }
 }

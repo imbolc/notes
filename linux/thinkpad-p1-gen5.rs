@@ -109,6 +109,7 @@ sudo apt install \
 ### CLI tools
 ```bash
 sudo apt install \
+  aria2 \
   build-essential \
   git \
   highlight \

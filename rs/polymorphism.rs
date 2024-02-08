@@ -1,6 +1,9 @@
 //! Polymorphysm in Rust
 
 fn main() {
+    // it accepts anythins printable
+    print_items(&[&"foo", &1, &true]);
+
     // this function can accept arguments of different types
     into_enum(1);
     into_enum(true);
@@ -8,6 +11,14 @@ fn main() {
     // this one can accept tuples of different types
     print(('a',));
     print((1, true));
+}
+
+// === Traits
+// We can accept anything as a trait objetc
+fn print_items(items: &[&dyn std::fmt::Display]) {
+    for item in items {
+        println!("{item}");
+    }
 }
 
 // === Enums

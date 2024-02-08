@@ -1,53 +1,61 @@
 # Supplements
 
 - all supplements are vegan
-- total cost is ~$13 a day
+- total cost is ~$10 a day
 
 ## Morning
 
-| Supplement                     | Amount  | Pills | Cost                       |
-|--------------------------------|---------|-------|----------------------------|
-| Acetyl-L-carnitine             | 500 mg  | 1     | [$0.20][alcar-brand]       |
-| Algae oil                      | 500 mg  | 1     | [$0.45][algae-brand]       |
-| B12                            | 500 mcg |       | [$0.13][b12-brand]         |
-| Calcium alpha-ketoglutarate    | 500 mg  | 1     | [$0.48][cal-akg-brand]     |
-| Calcium citrate                | 750 mg  | 3     | [$0.16][cal-citrate-brand] |
-| D3                             | 1000 UI |       | [$0.18][d3-brand]          |
-| Fisetin[^1]                    | 125 mg  | 1     | [$0.76][fistein-brand]     |
-| MCT powder (as coffee creamer) | 6 g     |       | [$1.03][mct-powder-brand]  |
-| MK7+                           |         | 1     | [$0.29][mk-7-brand]        |
-| Quercetin[^1]                  | 500 mg  | 1     | [$0.23][quercetin-brand]   |
-| Spermidine                     | 5 mg    | 1     | [$0.30][spermidine-brand]  |
-| Trans-resveratrol[^1]          | 500 mg  | 1     | [$0.58][resv-brand]        |
-| TMG                            | 500 mg  | 1     | [$0.16][tmg-brand]         |
-| ch-OSA                         | 100 mg  | 1     | [$0.56][ch-osa-brand]      |
-| *Total cost*                   |         |       | *$5.51*                    |
-
-[^1] Fisetin, Quercetin and Trans-resveratrol assumes taking with fat, that's why MCT is there
-
+| Supplement      | Amount          | Pills | Cost                       | Note          |
+|-----------------|-----------------|-------|----------------------------|---------------|
+| Algae oil       | 2800 mg         | 4     | [$2.44][algae-brand]       |               |
+| Calcium citrate | 750 mg          | 2     | [$0.16][cal-citrate-brand] |               |
+| D3 & K2         | 63 mcg & 80 mcg | 1     | [$0.19][d3-k2-brand]       | take with fat |
+| Probiotics      | 85B 31 strains  | 1     | [$0.60][probiotic-brand]   |               |
+| *Total cost*    |                 |       | *$3.39*                    |               |
 
 
 ## Lunch
 
 | Supplement      | Amount | Cost                    |
 |-----------------|--------|-------------------------|
+| Creatine        | 5 g    | [$0.47][creatine-brand] |
 | Dried blueberry | 15 g   | $0.60                   |
-| Creatine        | 5 g    | [$0.50][creatine-brand] |
 | Protein         | 56g    | [$4.82][protein-brand]  |
-| *Total cost*    |        | *$5.92*                 |
+| *Total cost*    |        | *$5.89*                 |
 
 
 ## Evening
 
-| Supplement            | Amount  | Pills | Cost                         |
-| --------------------- | ------- | ----- | --------------------------   |
-| Acetyl-L-carnitine    | 500 mg  | 1     | [$0.20][alcar-brand]         |
-| Berberine             | 500 mg  | 1     | [$0.26][berberine-brand]     |
-| Magnesium glycinate   | 300 mg  | 3     | [$0.19][mag-brand]           |
-| ch-OSA                | 100 mg  | 1     | [$0.56][ch-osa-brand]        |
-| Lutein                | 20 mg   | 1     | [$0.23][lutein-brand]        |
-| Trace minerals        |         | 1     | [$0.11][trace-minerals-brand |
-| *Total cost*          |         |       | *$1.55*                      |
+| Supplement            | Amount         | Pills | Cost                       | Note           |
+| --------------------- | -------------- | ----- | -------------------------- | -------------- |
+| Ashwagandha           | 300 mg         | 1     | [$0.20][ashwagandha-brand] |                |
+| B12                   | 500 mcg        | 1/2   | [$0.03][b12-brand]         | each other day |
+| Lutein                | 20 mg          | 1     | [$0.23][lutein-brand]      |                |
+| Magnesium glycinate   | 300 mg         | 2     | [$0.21][mag-brand]         |                |
+| Probiotics            | 85B 31 strains | 1     | [$0.60][probiotic-brand]   |                |
+| *Total cost*          |                |       | *$1.27*                    |                |
+
+## Taking occasionally
+
+| Supplement | Amount | Pills | Cost                     | Note            |
+|------------|--------|-------|--------------------------|-----------------|
+| Berberine  | 500 mg | 1     | [$0.26][berberine-brand] | with fast carbs |
+
+## Tried, but stopped taking
+
+| Supplement                     | Amount | Pills | Cost                         | Note          |
+|--------------------------------|--------|-------|------------------------------|---------------|
+| Acetyl-L-carnitine             | 500 mg | 1     | [$0.20][alcar-brand]         |               |
+| Calcium alpha-ketoglutarate    | 500 mg | 1     | [$0.48][cal-akg-brand]       |               |
+| Fisetin                        | 125 mg | 1     | [$0.76][fistein-brand]       | take with fat |
+| MCT powder (as coffee creamer) | 6 g    |       | [$1.03][mct-powder-brand]    |               |
+| MK7+                           |        | 1     | [$0.29][mk-7-brand]          |               |
+| Quercetin                      | 500 mg | 1     | [$0.23][quercetin-brand]     | take with fat |
+| Spermidine                     | 5 mg   | 1     | [$0.30][spermidine-brand]    |               |
+| Trans-resveratrol              | 500 mg | 1     | [$0.58][resv-brand]          | take with fat |
+| TMG                            | 500 mg | 1     | [$0.16][tmg-brand]           |               |
+| ch-OSA                         | 100 mg | 1     | [$0.56][ch-osa-brand]        |               |
+| Trace minerals                 |        | 1     | [$0.11][trace-minerals-brand |               |
 
 ## Details
 
@@ -68,23 +76,25 @@
 | Vitamin K2 MK-7     | 200 mcg             | aging, bones                           |                           |
 
 
-[alcar-brand]: https://kg.iherb.com/pr/mrm-nutrition-acetyl-l-carnitine-60-vegan-capsules/41351
-[algae-brand]: https://kg.iherb.com/pr/nordic-naturals-algae-omega-715-mg-120-soft-gels/106320
-[b12-brand]: https://kg.iherb.com/pr/garden-of-life-mykind-organics-b-12-organic-spray-raspberry-2-fl-oz-58-ml/58126
-[cal-akg-brand]: https://kg.iherb.com/pr/prohealth-longevity-calcium-akg-longevity-1-000-mg-60-capsules/114157
-[cal-citrate-brand]: https://kg.iherb.com/pr/solaray-calcium-citrate-with-vitamin-d-3-250-mg-240-vegcaps/23724
-[d3-brand]: https://kg.iherb.com/pr/garden-of-life-mykind-organics-vegan-d3-organic-spray-vanilla-25-mcg-1-000-iu-2-fl-oz-58-ml/58127
-[fistein-brand]: https://kg.iherb.com/pr/prohealth-longevity-fisetin-pro-longevity-125-mg-60-capsules/117520
-[mct-powder-brand]: https://kg.iherb.com/pr/garden-of-life-dr-formulated-keto-organic-mct-powder-10-58-oz-300-g/86686
-[mk-7-brand]: https://kg.iherb.com/pr/now-foods-mk-7-plus-with-k1-mk-4-90-veg-capsules/116195
-[quercetin-brand]: https://kg.iherb.com/pr/solaray-quercetin-500-mg-90-vegcaps/18947
+[alcar-brand]: https://iherb.com/pr/mrm-nutrition-acetyl-l-carnitine-60-vegan-capsules/41351
+[algae-brand]: https://iherb.com/pr/nordic-naturals-algae-omega-715-mg-120-soft-gels/106320
+[b12-brand]: https://iherb.com/pr/doctor-s-best-fully-active-b12-1-500-mcg-180-veggie-caps/98032
+[cal-akg-brand]: https://iherb.com/pr/prohealth-longevity-calcium-akg-longevity-1-000-mg-60-capsules/114157
+[cal-citrate-brand]: https://iherb.com/pr/solaray-calcium-citrate-with-vitamin-d-3-250-mg-240-vegcaps/23724
+[d3-k2-brand]: https://iherb.com/pr/mrm-nutrition-vegan-vitamin-d3-k2-60-vegan-capsules/77415
+[fistein-brand]: https://iherb.com/pr/prohealth-longevity-fisetin-pro-longevity-125-mg-60-capsules/117520
+[mct-powder-brand]: https://iherb.com/pr/garden-of-life-dr-formulated-keto-organic-mct-powder-10-58-oz-300-g/86686
+[mk-7-brand]: https://iherb.com/pr/now-foods-mk-7-plus-with-k1-mk-4-90-veg-capsules/116195
+[quercetin-brand]: https://iherb.com/pr/solaray-quercetin-500-mg-90-vegcaps/18947
 [spermidine-brand]: https://www.amazon.com/Spermidine-10mg-99-Capsules-Supplements/dp/B09NP4MPQB
-[resv-brand]: https://kg.iherb.com/pr/prohealth-longevity-trans-resveratrol-with-increased-absorption-500-mg-60-capsules/114180
-[tmg-brand]: https://kg.iherb.com/pr/life-extension-tmg-500-mg-60-liquid-vegetarian-capsules/55665
-[ch-osa-brand]: https://kg.iherb.com/pr/biosil-ch-osa-advanced-collagen-generator-120-vegetarian-capsules/23160
-[protein-brand]: https://kg.iherb.com/pr/garden-of-life-raw-organic-protein-plant-based-unflavored-19-75-oz-560-g/22343
-[creatine-brand]: https://kg.iherb.com/pr/sunwarrior-sport-active-creatine-monohydrate-unflavored-10-58-oz-300-g/112272
-[berberine-brand]: https://kg.iherb.com/pr/natural-factors-wellbetx-berberine-500-mg-120-vegetarian-capsules/85657
-[mag-brand]: https://kg.iherb.com/pr/doctor-s-best-high-absorption-magnesium-100-mg-240-tablets/16567
-[lutein-brand]: https://kg.iherb.com/pr/doctor-s-best-lutein-with-lutemax-2020-20-mg-60-softgels/63505
-[trace-minerals-brand]: https://kg.iherb.com/pr/life-extension-only-trace-minerals-90-vegetarian-capsules/39328
+[resv-brand]: https://iherb.com/pr/prohealth-longevity-trans-resveratrol-with-increased-absorption-500-mg-60-capsules/114180
+[tmg-brand]: https://iherb.com/pr/life-extension-tmg-500-mg-60-liquid-vegetarian-capsules/55665
+[ch-osa-brand]: https://iherb.com/pr/biosil-ch-osa-advanced-collagen-generator-120-vegetarian-capsules/23160
+[protein-brand]: https://iherb.com/pr/garden-of-life-raw-organic-protein-plant-based-unflavored-19-75-oz-560-g/22343
+[creatine-brand]: https://iherb.com/pr/thorne-creatine-16-oz-450-g/70006
+[berberine-brand]: https://iherb.com/pr/natural-factors-wellbetx-berberine-500-mg-120-vegetarian-capsules/85657
+[mag-brand]: https://iherb.com/pr/doctor-s-best-high-absorption-magnesium-100-mg-240-tablets/16567
+[lutein-brand]: https://iherb.com/pr/doctor-s-best-lutein-with-lutemax-2020-20-mg-60-softgels/63505
+[trace-minerals-brand]: https://iherb.com/pr/life-extension-only-trace-minerals-90-vegetarian-capsules/39328
+[probiotic-brand]: https://iherb.com/pr/garden-of-life-raw-probiotics-men-85-billion-90-vegetarian-capsules-28-33-billion-live-cultures-per-capsule/27365
+[ashwagandha-brand]: https://iherb.com/pr/jarrow-formulas-ashwagandha-300-mg-120-veggie-capsules/3302

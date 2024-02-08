@@ -3,12 +3,13 @@ BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
 
 -- Create table
 CREATE TABLE person (
-    id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    id serial PRIMARY KEY,
+    -- id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
-    -- Trimmed text column
-    name text CONSTRAINT name_trimmed CHECK (name = TRIM(name)),
+    -- Trimmed and not empty text column
+    name text CHECK (name = trim(name) AND name <> ''),
 
-    -- Constrains
+    -- Named constrains
     dob timestamptz NOT NULL DEFAULT now() 
         CONSTRAINT dob_min CHECK(dob > '1900.01.01')
         CONSTRAINT dob_max CHECK(dob < '2000.01.01'),

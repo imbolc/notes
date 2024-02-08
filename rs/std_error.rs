@@ -14,7 +14,8 @@ pub enum Error {
 }
 
 fn main() {
-    run().map_err(|e| eprintln!("{}", error_chain(&e))).ok();
+    println!("{}", error_chain("string error"));
+    run().map_err(|e| eprintln!("{}", error_chain(e))).ok();
 }
 
 fn run() -> Result<(), Error> {
@@ -46,7 +47,9 @@ impl error::Error for Error {
 }
 
 /// A helper to format error with its source chain
-fn error_chain(e: &impl std::error::Error) -> String {
+/// Boxing allows accepting strings as errors
+fn error_chain(e: impl Into<Box<dyn std::error::Error + 'static>>) -> String {
+    let e = e.into();
     let mut s = e.to_string();
     let mut current = e.source();
     if current.is_some() {

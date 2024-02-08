@@ -1,25 +1,27 @@
 -- Postgres upsert (insert on conflict)
 BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
+\set ECHO all
 
 CREATE TABLE category (
-    id int PRIMARY KEY,
-    val text NOT NULL
+    id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name text UNIQUE NOT NULL
 );
 
--- Create an initial value
-INSERT INTO category VALUES (1, 'foo');
+-- Do nothing if `name` already exists
+INSERT INTO category (name) VALUES ('foo'), ('foo')
+ON CONFLICT (name) DO NOTHING;
 
--- Do nothing if `id` already exists
-INSERT INTO category VALUES (1, 'bar')
-ON CONFLICT (id) DO NOTHING;
+-- Return id even if row isn't new
+INSERT INTO category (name) VALUES ('foo'),  ('bar')
+ON CONFLICT (name) DO
+    UPDATE SET name = excluded.name  -- without it excluded rows would be skipped
+RETURNING id;
 
--- Update value if `id` exists
--- Returns `new = true` if the row was inserted
-INSERT INTO category (id, val)
-              VALUES (1, 'bar'),  (2, 'spam')
-ON CONFLICT (id) DO
-    UPDATE SET val = 'updated'
-RETURNING xmax = 0 AS new;
+-- Return `new = true` if the row was inserted
+INSERT INTO category (name) VALUES ('foo'),  ('bar'), ('baz')
+ON CONFLICT (name) DO
+    UPDATE SET name = excluded.name
+RETURNING id, xmax = 0 AS is_new;
 
 SELECT * FROM category;
 

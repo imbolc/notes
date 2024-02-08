@@ -2,19 +2,16 @@
 use std::thread;
 
 fn main() {
-    let data = vec![1, 2, 3, 4, 5];
+    let data: Vec<usize> = (1..=5).collect();
 
     thread::scope(|s| {
-        s.spawn(|| {
-            for n in &data {
-                println!("{:?}: {}", thread::current().id(), n);
-            }
-        });
-        s.spawn(|| {
-            for n in &data {
-                println!("{:?}: {}", thread::current().id(), n);
-            }
-        });
+        for _ in 0..5 {
+            s.spawn(|| {
+                for n in &data {
+                    println!("{:?}: {}", thread::current().id(), n);
+                }
+            });
+        }
     });
 
     println!("All scoped threads are joined");
