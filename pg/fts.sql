@@ -2,7 +2,7 @@
 BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
 \set ECHO all
 
-CREATE TABLE person (
+CREATE TABLE food (
     id serial PRIMARY KEY,
     name text NOT NULL,
     -- search vector is automatically synced with the source data (name)
@@ -10,21 +10,34 @@ CREATE TABLE person (
 );
 
 -- Index to speedup the search
-CREATE INDEX name_fts_idx ON person USING GIN (name_fts);
+CREATE INDEX ON food USING GIN (name_fts);
 
 -- Some data to search
-INSERT INTO person (name) VALUES
-    ('Rust is a multi-paradigm, general-purpose programming language for performance, type safety, and concurrency.'),
-    ('SQL is a domain-specific language used to manage data, especially in a relational database management system.');
+INSERT INTO food (name) VALUES
+    ('Nut, cashew, roasted, salted'),
+    ('Butter, plain, no added salt'),
+    ('Plum, salted');
 
--- Whole word search
-SELECT id, name
-FROM person
-WHERE name_fts @@ to_tsquery('type');    
 
--- Include incomplete words
-SELECT id, name
-FROM person
-WHERE name_fts @@ to_tsquery('lang' || ':*');    
+-- -- Search by phrases
+-- \set phrase 'performant and concurrent'
+-- SELECT
+--     ts_rank(name_fts, websearch_to_tsquery('english', :'phrase')) as rank,
+--     id,
+--     name
+-- FROM language
+-- WHERE name_fts @@ websearch_to_tsquery(:'phrase')
+-- ORDER BY rank DESC;    
+
+-- Full text search falling back to regexp with
+\set input 'salt'
+SELECT
+    id,
+    name,
+    ts_rank(to_tsvector('english', name), to_tsquery('english', :'input' || ':*')) AS rank
+FROM food
+WHERE to_tsvector('english', name) @@ to_tsquery(:'input' || ':*')
+ORDER BY rank DESC, name ILIKE :'input' DESC;
+
 
 ROLLBACK;

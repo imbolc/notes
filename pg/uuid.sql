@@ -1,8 +1,6 @@
 -- Postgres UUID
 BEGIN; CREATE SCHEMA sandbox; SET search_path = sandbox;
 
-SELECT gen_random_uuid();
-
 -- Using UUID as a primary key
 CREATE TABLE foo (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid()
