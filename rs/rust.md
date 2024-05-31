@@ -9,6 +9,7 @@ Rustup
 - install rust stable: `rustup install stable`
 - install nightly: `rustup install nightly`
 - add some components: `rustup component add rustfmt clippy rust-src rust-analyzer`
+- add some components to nightly: `rustup component add rustfmt --toolchain nightly`
 - update rust: `rustup update`
 - check current version: `rustc --version`
 - set global default toolchain: `rustup default nightly`

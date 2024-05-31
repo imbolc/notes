@@ -1,7 +1,14 @@
 # Inline script
 
-<div id="parent">
+Inline scripts bound to the parent html element
+
+<div>
+    <output></output>
     <script>
-        console.log(document.currentScript.parentElement);
+        (() => {
+            let $root = document.currentScript.parentElement;
+            let $output = $root.querySelector("output");
+            $output.textContent = "hi from the script";
+        })();
     </script>
 </div>

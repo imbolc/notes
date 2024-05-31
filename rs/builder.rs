@@ -9,28 +9,37 @@ struct Person {
 struct PersonBuilder(Person);
 
 fn main() {
-    // `Default` trait - if there's reasonable defaults for every field we can reduce boilerplate
-    // without creating a builder
+    // If there's reasonable defaults for every optional field, we can reduce
+    // boilerplate without a builder using `Default` trait
     let _alice = Person {
         given_name: "Alice".into(),
         ..Default::default()
     };
 
-    let _bond = PersonBuilder::new("James").family_name("Bond").build();
+    let _bond = Person::builder("James".to_string())
+        .family_name("Bond".to_string())
+        .build();
+}
+
+impl Person {
+    /// A convenience method to start building without a need to import the builder
+    fn builder(given_name: String) -> PersonBuilder {
+        PersonBuilder::new(given_name)
+    }
 }
 
 impl PersonBuilder {
     /// Constructor takes required fields
-    fn new(given_name: impl Into<String>) -> Self {
+    fn new(given_name: String) -> Self {
         Self(Person {
             given_name: given_name.into(),
-            family_name: None,
+            ..Default::default()
         })
     }
 
     /// And all the optional fields have setters like this
-    fn family_name(mut self, s: impl Into<String>) -> Self {
-        self.0.family_name = Some(s.into());
+    fn family_name(mut self, s: impl Into<Option<String>>) -> Self {
+        self.0.family_name = s.into();
         self
     }
 

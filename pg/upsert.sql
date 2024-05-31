@@ -9,7 +9,13 @@ CREATE TABLE category (
 
 -- Do nothing if `name` already exists
 INSERT INTO category (name) VALUES ('foo'), ('foo')
-ON CONFLICT (name) DO NOTHING;
+ON CONFLICT (name) DO NOTHING
+RETURNING id;
+
+-- Second insert won't return id
+INSERT INTO category (name) VALUES ('foo'), ('foo')
+ON CONFLICT (name) DO NOTHING
+RETURNING id;
 
 -- Return id even if row isn't new
 INSERT INTO category (name) VALUES ('foo'),  ('bar')

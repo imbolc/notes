@@ -5,7 +5,11 @@ Error handling
 --------------
 ```javascript
 try {
-    let r = await fetch("/foo")
+    let r = await fetch("/foo", {
+        headers: {
+            "Accept": "application/json",
+        },
+    })
     if (!r.ok) { throw r }
     let data = await r.json()
 } catch (e) {
@@ -22,6 +26,7 @@ try {
         body: JSON.stringify(payload),
         credentials: "same-origin",
         headers: {
+            "Accept": "application/json",
             "Content-Type": "application/json"
         }
     })

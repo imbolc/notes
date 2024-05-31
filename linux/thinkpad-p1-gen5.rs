@@ -235,9 +235,9 @@ cargo install --locked \
     cargo-expand \
     cargo-generate \
     cargo-limit \
-    cargo-outdated \
     cargo-machete \
     cargo-make \
+    cargo-outdated \
     cargo-readme \
     cargo-sort \
     cargo-sync-readme \

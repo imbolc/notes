@@ -1,17 +1,13 @@
 # Supplements
 
 - all supplements are vegan
-- total cost is ~$10 a day
 
 ## Morning
 
 | Supplement      | Amount          | Pills | Cost                       | Note          |
 |-----------------|-----------------|-------|----------------------------|---------------|
-| Algae oil       | 2800 mg         | 4     | [$2.44][algae-brand]       |               |
+| Algae oil       | 1400 mg         | 4     | [$1.22][algae-brand]       |               |
 | Calcium citrate | 750 mg          | 2     | [$0.16][cal-citrate-brand] |               |
-| D3 & K2         | 63 mcg & 80 mcg | 1     | [$0.19][d3-k2-brand]       | take with fat |
-| Probiotics      | 85B 31 strains  | 1     | [$0.60][probiotic-brand]   |               |
-| *Total cost*    |                 |       | *$3.39*                    |               |
 
 
 ## Lunch
@@ -21,41 +17,40 @@
 | Creatine        | 5 g    | [$0.47][creatine-brand] |
 | Dried blueberry | 15 g   | $0.60                   |
 | Protein         | 56g    | [$4.82][protein-brand]  |
-| *Total cost*    |        | *$5.89*                 |
 
 
 ## Evening
 
 | Supplement            | Amount         | Pills | Cost                       | Note           |
 | --------------------- | -------------- | ----- | -------------------------- | -------------- |
-| Ashwagandha           | 300 mg         | 1     | [$0.20][ashwagandha-brand] |                |
 | B12                   | 500 mcg        | 1/2   | [$0.03][b12-brand]         | each other day |
 | Lutein                | 20 mg          | 1     | [$0.23][lutein-brand]      |                |
 | Magnesium glycinate   | 300 mg         | 2     | [$0.21][mag-brand]         |                |
-| Probiotics            | 85B 31 strains | 1     | [$0.60][probiotic-brand]   |                |
-| *Total cost*          |                |       | *$1.27*                    |                |
 
 ## Taking occasionally
 
-| Supplement | Amount | Pills | Cost                     | Note            |
-|------------|--------|-------|--------------------------|-----------------|
-| Berberine  | 500 mg | 1     | [$0.26][berberine-brand] | with fast carbs |
+| Supplement  | Amount          | Pills | Cost                       | Note                       |
+|-------------|-----------------|-------|----------------------------|----------------------------|
+| Berberine   | 500 mg          | 1     | [$0.26][berberine-brand]   | with fast carbs            |
+| Probiotics  | 85B 31 strains  | 1     | [$0.60][probiotic-brand]   |                            |
+| Ashwagandha | 300 mg          | 1     | [$0.20][ashwagandha-brand] |                            |
+| D3 & K2     | 63 mcg & 80 mcg | 1     | [$0.19][d3-k2-brand]       | winter only, take with fat |
 
 ## Tried, but stopped taking
 
-| Supplement                     | Amount | Pills | Cost                         | Note          |
-|--------------------------------|--------|-------|------------------------------|---------------|
-| Acetyl-L-carnitine             | 500 mg | 1     | [$0.20][alcar-brand]         |               |
-| Calcium alpha-ketoglutarate    | 500 mg | 1     | [$0.48][cal-akg-brand]       |               |
-| Fisetin                        | 125 mg | 1     | [$0.76][fistein-brand]       | take with fat |
-| MCT powder (as coffee creamer) | 6 g    |       | [$1.03][mct-powder-brand]    |               |
-| MK7+                           |        | 1     | [$0.29][mk-7-brand]          |               |
-| Quercetin                      | 500 mg | 1     | [$0.23][quercetin-brand]     | take with fat |
-| Spermidine                     | 5 mg   | 1     | [$0.30][spermidine-brand]    |               |
-| Trans-resveratrol              | 500 mg | 1     | [$0.58][resv-brand]          | take with fat |
-| TMG                            | 500 mg | 1     | [$0.16][tmg-brand]           |               |
-| ch-OSA                         | 100 mg | 1     | [$0.56][ch-osa-brand]        |               |
-| Trace minerals                 |        | 1     | [$0.11][trace-minerals-brand |               |
+| Supplement                     | Amount         | Pills | Cost                         | Note                |
+|--------------------------------|----------------|-------|------------------------------|---------------------|
+| Acetyl-L-carnitine             | 500 mg         | 1     | [$0.20][alcar-brand]         |                     |
+| Calcium alpha-ketoglutarate    | 500 mg         | 1     | [$0.48][cal-akg-brand]       |                     |
+| Fisetin                        | 125 mg         | 1     | [$0.76][fistein-brand]       | take with fat       |
+| MCT powder (as coffee creamer) | 6 g            |       | [$1.03][mct-powder-brand]    |                     |
+| MK7+                           |                | 1     | [$0.29][mk-7-brand]          |                     |
+| Quercetin                      | 500 mg         | 1     | [$0.23][quercetin-brand]     | take with fat       |
+| Spermidine                     | 5 mg           | 1     | [$0.30][spermidine-brand]    |                     |
+| Trans-resveratrol              | 500 mg         | 1     | [$0.58][resv-brand]          | take with fat       |
+| TMG                            | 500 mg         | 1     | [$0.16][tmg-brand]           |                     |
+| ch-OSA                         | 100 mg         | 1     | [$0.56][ch-osa-brand]        |                     |
+| Trace minerals                 |                | 1     | [$0.11][trace-minerals-brand |                     |
 
 ## Details
 
