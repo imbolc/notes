@@ -5,13 +5,13 @@ Error handling
 --------------
 ```javascript
 try {
-    let r = await fetch("/foo", {
+    const r = await fetch("/foo", {
         headers: {
             "Accept": "application/json",
         },
     })
     if (!r.ok) { throw r }
-    let data = await r.json()
+    const data = await r.json()
 } catch (e) {
     alert(e.statusText || e.message || e.status)
 }
@@ -21,7 +21,7 @@ Post json
 ---------
 ```javascript
 try {
-    let r = await fetch("/foo", {
+    const r = await fetch("/foo", {
         method: "POST",
         body: JSON.stringify(payload),
         credentials: "same-origin",
@@ -31,7 +31,7 @@ try {
         }
     })
     if (!r.ok) { throw r }
-    let data = await r.json()
+    const data = await r.json()
 } catch (e) {
     alert(e.statusText || e.message || e.status)
 }

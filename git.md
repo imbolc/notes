@@ -7,7 +7,7 @@ git reset HEAD~1
 git push --force
 ```
 
-Checkout Github pull request:
+Checkout GitHub pull request:
 ```sh
 gh pr checkout pull-request
 ```
@@ -16,6 +16,11 @@ Squash merge
 ```sh
 git merge --squash bugfix
 git commit
+```
+
+Statistic starting from a commit
+```sh
+git diff --stat <commit-hash> HEAD
 ```
 
 Add remote:
@@ -43,12 +48,6 @@ Merge only specific files from another branch:
 
 ```sh
 git checkout source_branch <paths>...
-```
-
-Remove all branches except of master and the current one:
-
-```sh
-git branch | grep -v "master" | xargs git branch -D
 ```
 
 

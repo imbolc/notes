@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # Check file existence
 
 # `-f` - for a file

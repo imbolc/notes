@@ -1,7 +1,6 @@
 //! ```cargo
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
-//! dotenv = "0.15"
 //! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 use sqlx::Row;
@@ -16,7 +15,6 @@ enum Color {
 
 #[tokio::main]
 async fn main() -> sqlx::Result<()> {
-    dotenv::dotenv().ok();
     let db = sqlx::PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await?;
     let mut tx = db.begin().await?;
 

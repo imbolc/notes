@@ -2,33 +2,37 @@
 <button id="no-propagate">don't propagate</button>
 
 <button
-    onclick="event.stopPropagation(); this.dispatchEvent(new Event('custom', { bubbles: true }))"
+  onclick="event.stopPropagation(); this.dispatchEvent(new Event('custom', { bubbles: true }))"
 >
-    custom event
+  custom event
 </button>
 
 <button id="custom-with-data">custom with data</button>
 <script>
-    const print_event = (e) => console.log({ event: e.type, detail: e.detail, catched_on: e.currentTarget });
-
-    document.body.addEventListener("click", print_event);
-    document.body.addEventListener("custom", print_event);
-
-    document.querySelector("#propagate").addEventListener("click", print_event);
-    document.querySelector("#no-propagate").addEventListener("click", (e) => {
-        e.stopPropagation();
-        print_event(e);
+  const print_event = (e) =>
+    console.log({
+      event: e.type,
+      detail: e.detail,
+      caught_on: e.currentTarget,
     });
 
-    document.querySelector("#custom-with-data").addEventListener("click", (e) => {
-        e.stopPropagation();
-        print_event(e);
+  document.body.addEventListener("click", print_event);
+  document.body.addEventListener("custom", print_event);
 
-        const custom = new CustomEvent("custom-with-data", {
-            bubbles: true, // by default custom events don't bubble
-            detail: { foo: "bar" },  // we can add any data to the event
-        });
-        e.target.dispatchEvent(custom);
+  document.querySelector("#propagate").addEventListener("click", print_event);
+  document.querySelector("#no-propagate").addEventListener("click", (e) => {
+    e.stopPropagation();
+    print_event(e);
+  });
+
+  document.querySelector("#custom-with-data").addEventListener("click", (e) => {
+    e.stopPropagation();
+    print_event(e);
+
+    const custom = new CustomEvent("custom-with-data", {
+      bubbles: true, // by default custom events don't bubble
+      detail: { foo: "bar" }, // we can add any data to the event
     });
+    e.target.dispatchEvent(custom);
+  });
 </script>
-    

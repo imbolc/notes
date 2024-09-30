@@ -1,52 +1,67 @@
-Systemd
-=======
+# Systemd
 
 
-Timers
-------
-- enable and start a timer: `sudo systemctl enable --now foo.timer`
-- stop and disable a timer: `sudo systemctl disable --now foo.timer`
-- list of all started timers: `systemctl list-timers`
+## Timers
 
-For each `.timer` file, a matching `.service` file exists (e.g. `foo.timer` and `foo.service`).
-The `.timer` file activates and controls the `.service` file.
-The `.service` does not require an `[Install]` section as it is the timer units that are enabled.
+Timers added by creating two files which the same name, but different extensions:
 
-### An timer example
+- `foo.service` - the one-shot service that runs the intended command
+- `foo.timer` - that's specifies the timer behaviour
 
-Create a service: `/etc/systemd/system/hello.service`
+### Useful commands
 
-```systemd
-[Unit]
-Description=Greeting
+```bash
+sudo systemctl enable --now foo.timer    # Enable and start a timer
+sudo systemctl disable --now foo.timer   # Stop and disable a timer
+systemctl list-timers                    # List all started timers
+```
 
+### A timer example
+
+Let's create a one-shot greeting service that prints a string into the system journal:
+
+```bash
+sudo tee /etc/systemd/system/hello.service > /dev/null << EOF
 [Service]
 Type=oneshot
-User=imbolc
-ExecStart=/usr/bin/timeout 1s echo Hey :)
+ExecStart=echo "Hey :)"
+EOF
 ```
 
-And the corresponding timer: `/etc/systemd/system/hello.timer`
+We can run it and check the journal for the output:
 
-```systemd
-[Unit]
-Description=Greets every 5 minutes
+```bash
+sudo systemctl start hello
+sudo journalctl -u hello
+```
 
+Now let's create the corresponding timer to automatically run the service every second.
+Timer bound to the service by the filename `hello.timer` starts `hello.service`.
+
+```bash
+sudo tee /etc/systemd/system/hello.timer > /dev/null << EOF
 [Timer]
-OnCalendar=*:0/5
+# Run the service 1 second after boot
+OnBootSec=1s
+
+# Run the service again in 5 seconds after it deactivates
+OnUnitActiveSec=5s
 
 [Install]
+# Start the timer automatically on boot
 WantedBy=timers.target
+EOF
 ```
 
+Now we can enable the timer:
 
-Enable and start the timer:
 ```bash
-sudo systemctl daemon-reload
+sudo systemctl daemon-reload  # Reload systemd configs after modification
 sudo systemctl enable --now hello.timer
 ```
 
-Now you should see a new greeting in the journal each minute:
+And watch the system journal for the greeting messages appearing every 5 seconds:
+
 ```sh
-journalctl -f -u hello
+sudo journalctl -f -u hello
 ```

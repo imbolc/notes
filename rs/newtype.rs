@@ -1,7 +1,28 @@
 //! Newtype and "parse, don't validate" idioms
-use std::{fmt, str::FromStr};
+//!
+//! ```cargo
+//! [dependencies]
+//! derive_more = "*"
+//! ```
+use std::str::FromStr;
 
+#[derive(
+    Debug,
+    Clone,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Hash,
+    derive_more::AsRef,
+    derive_more::Display,
+    // is it make sense to provide access to the most of the underlying type api?
+    // probably not as a public api of a crate
+    derive_more::Deref,
+)]
 struct Name(String);
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, derive_more::Display)]
 struct Age(usize);
 
 fn main() -> Result<(), String> {
@@ -11,11 +32,14 @@ fn main() -> Result<(), String> {
 
     // After constructing our newtypes, we can be sure the data is valid and
     // use these types afterwards without validation
-    let name: Name = name_input.try_into()?;
+    let name = Name::try_from(name_input)?;
     let age: Age = age_input.parse()?;
 
-    println!("name: {name}");
-    println!("age: {age}");
+    // Also notice, that `age_input` isn't consumed, while `name_input` is
+    dbg!(age_input);
+    // dbg!(name_input); // compile error: value used here after move
+
+    dbg!(name, age);
     Ok(())
 }
 
@@ -31,8 +55,8 @@ impl FromStr for Age {
     }
 }
 
-/// We implement `TryFrom` instead of `FromStr` to avoid an unnecessary allocation
-/// during string copying
+/// We implement `TryFrom` instead of `FromStr` to avoid an unnecessary
+/// allocation during string copying
 impl TryFrom<String> for Name {
     type Error = String;
 
@@ -41,29 +65,5 @@ impl TryFrom<String> for Name {
             return Err("name is too short".into());
         }
         Ok(Name(s))
-    }
-}
-
-impl AsRef<str> for Name {
-    fn as_ref(&self) -> &str {
-        &self.0
-    }
-}
-
-impl From<Age> for usize {
-    fn from(value: Age) -> usize {
-        value.0
-    }
-}
-
-impl fmt::Display for Age {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.0)
-    }
-}
-
-impl fmt::Display for Name {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.0)
     }
 }

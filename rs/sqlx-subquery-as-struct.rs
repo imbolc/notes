@@ -4,7 +4,6 @@
 //! ```cargo
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
-//! dotenv = "0.15"
 //! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 
@@ -23,7 +22,6 @@ struct Ocupation {
 
 #[tokio::main]
 async fn main() -> sqlx::Result<()> {
-    dotenv::dotenv().ok();
     let db = sqlx::PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await?;
 
     let people = sqlx::query_as!(
@@ -40,8 +38,8 @@ async fn main() -> sqlx::Result<()> {
         SELECT
             p.id as "id!",
             p.name as "name!",
-            (SELECT
-                (o.id, o.name)
+            (
+                SELECT (o.id, o.name)
                 FROM ocupation o
                 WHERE o.id = p.ocupation_id
             ) as "ocupation: Ocupation"

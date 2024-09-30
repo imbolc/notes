@@ -13,14 +13,15 @@ lang:greet()
 vim.print(lang)
 
 -- Display error
-vim.notify("An error", vim.log.levels.ERROR)
+vim.notify("Error notification example", vim.log.levels.ERROR)
 
 -- Run Vimscript
 vim.cmd([[
     echo "Hey from Vimscript ;)"
 ]])
 
-print(vim.fn.stdpath("data"))
-
 -- print a variable
 -- print(vim.inspect(package.loaded))
+
+local cur_dir = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":h")
+print(cur_dir)

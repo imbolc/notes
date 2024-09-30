@@ -126,6 +126,7 @@ sudo apt install \
   ranger \
   redis \
   rsync \
+  shfmt \
   tmux \
   tree \
   wget \

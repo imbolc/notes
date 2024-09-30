@@ -6,8 +6,8 @@ Inline scripts bound to the parent html element
     <output></output>
     <script>
         (() => {
-            let $root = document.currentScript.parentElement;
-            let $output = $root.querySelector("output");
+            let $parent = document.currentScript.parentElement;
+            let $output = $parent.querySelector("output");
             $output.textContent = "hi from the script";
         })();
     </script>

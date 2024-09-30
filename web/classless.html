@@ -1,78 +1,101 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Classless HTML Structure</title>
-        <meta name="description" content="Classless HTML structure">
-        <link rel="icon" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='blue'/%3E%3Ccircle cx='50' cy='50' r='40' fill='yellow'/%3E%3C/svg%3E">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classless HTML Structure</title>
+    <meta name="description" content="Classless HTML structure" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='blue'/%3E%3Ccircle cx='50' cy='50' r='40' fill='yellow'/%3E%3C/svg%3E"
+    />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <style>
-            body {
-                /* Navbar that wraps gracefully */
-                > header {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 1em;
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        /* Navbar that wraps gracefully */
+        > header {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1em;
 
-                    nav {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 1em;
+          nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
 
-                        > a {
-                            text-decoration: none;
-                            white-space: nowrap;
-                            display: flex;
-                            flex-wrap: nowrap;
-                            align-items: center;
-                            gap: 5px;
-                            margin: 0 auto;
-                        }
-                    }
-
-                    @media (max-width: 700px) {
-                        justify-content: center;
-                    }
-                }
+            > a {
+              text-decoration: none;
+              white-space: nowrap;
+              display: flex;
+              flex-wrap: nowrap;
+              align-items: center;
+              gap: 5px;
+              margin: 0 auto;
             }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="blue"/><circle cx="50" cy="50" r="40" fill="yellow"/></svg>
-                    Classless HTML
-                </a>
-                <a href="/">Left nav</a>
-            </nav>
-            <nav>
-                <a href="/">Center nav</a>
-                <a href="/">Center nav</a>
-            </nav>
-            <nav>
-                <a href="/">Right nav</a>
-                <a href="/about">Right nav</a>
-            </nav>
-        </header>
-        <main>
-            <section>
-                <article>
-                    <header>
-                        <h2>Title</h2>
-                        <p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-                    </header>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                </article>
-            </section>
-        </main>
+          }
 
-        <footer>
-            (c) Me
-        </footer>
-    </body>
+          @media (max-width: 700px) {
+            justify-content: center;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="30"
+            viewBox="0 0 100 100"
+          >
+            <circle cx="50" cy="50" r="50" fill="blue" />
+            <circle cx="50" cy="50" r="40" fill="yellow" />
+          </svg>
+          Classless HTML
+        </a>
+        <a href="/">Left nav</a>
+      </nav>
+      <nav>
+        <a href="/">Center nav</a>
+        <a href="/">Center nav</a>
+      </nav>
+      <nav>
+        <a href="/">Right nav</a>
+        <a href="/about">Right nav</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <article>
+          <header>
+            <h2>Title</h2>
+            <p>
+              Posted on
+              <time datetime="2009-09-04T16:31:24+02:00"
+                >September 4th 2009</time
+              >
+              by <a href="#">Writer</a> - <a href="#comments">6 comments</a>
+            </p>
+          </header>
+          <p>
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>(c) Me</footer>
+  </body>
 </html>

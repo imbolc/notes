@@ -15,7 +15,7 @@ DB=dbname bash -c 'unxz -c $DB.sql.xz | psql $DB'
 ```
 
 ```sh
-pg_dump dbname | gzip > dump.sql.gz
+pg_dump --no-owner --no-acl dbname | gzip > "dump-$(date -u +"%Y-%m-%dT%H:%M:%SZ").sql.gz"
 gunzip -c dump.sql.gz | psql dbname
 ```
 

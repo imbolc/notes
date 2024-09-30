@@ -1,9 +1,7 @@
 //! SQLx: typed json
-//! Add `~/.env`: `DATABASE_URL=postgres:///` for `sqlx` macros to work
 //!
 //! ```cargo
 //! [dependencies]
-//! dotenv = "0.15"
 //! serde = { version = "1", features = ["derive"] }
 //! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres", "json"] }
 //! tokio = { version = "1", features = ["full"] }
@@ -23,7 +21,6 @@ struct MyRow {
 
 #[tokio::main]
 async fn main() -> sqlx::Result<()> {
-    dotenv::dotenv().ok();
     let db = sqlx::PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await?;
 
     let rows = sqlx::query_as!(
