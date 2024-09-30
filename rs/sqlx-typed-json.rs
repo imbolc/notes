@@ -6,37 +6,41 @@
 //! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres", "json"] }
 //! tokio = { version = "1", features = ["full"] }
 //! ```
+use sqlx::types::Json;
 
-#[allow(dead_code)]
-#[derive(Debug, serde::Deserialize)]
-struct MyJson {
-    id: i32,
-}
-
-#[allow(dead_code)]
-#[derive(Debug)]
-struct MyRow {
-    my_json: sqlx::types::Json<MyJson>,
+#[derive(Debug, PartialEq, serde::Deserialize, serde::Serialize)]
+struct Person {
+    name: String,
 }
 
 #[tokio::main]
 async fn main() -> sqlx::Result<()> {
     let db = sqlx::PgPool::connect(&std::env::var("DATABASE_URL").unwrap()).await?;
 
-    let rows = sqlx::query_as!(
-        MyRow,
+    let deserialized = sqlx::query_scalar!(
         r#"
-        WITH
-            my_row ("my_json") AS (VALUES
-                ('{"id": 1}'::jsonb)
-            )
-        SELECT my_json as "my_json!: sqlx::types::Json<MyJson>"
-        FROM my_row
+        SELECT '{"name": "Alice"}'::jsonb as "person!: Json<Person>"
         "#,
     )
-    .fetch_all(&db)
+    .fetch_one(&db)
     .await?;
+    assert_eq!(
+        deserialized.0,
+        Person {
+            name: "Alice".into()
+        }
+    );
 
-    dbg!(rows);
+    let serialized = sqlx::query_scalar!(
+        r#"
+        SELECT $1::jsonb::text
+        "#,
+        Json(Person { name: "Bob".into() }) as _
+    )
+    .fetch_one(&db)
+    .await?
+    .unwrap();
+    assert_eq!(serialized, r#"{"name": "Bob"}"#);
+
     Ok(())
 }
