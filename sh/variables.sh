@@ -1,16 +1,15 @@
 #!/usr/bin/env sh
 
+first_arg="${1:-default first arg}"
+
 # will disappear after the script exit
 foo='a local variable'
 
 # will be left accessible in the current shell session
 export FOO='a global variable'
 
-# if variable `bar` is empty assign it a default value
-${foo:='a default value'}
-
 # positional arguments
-echo "first argument is '$1'"
+echo "first argument is $first_arg"
 
 echo "foo='$foo'"
 echo "FOO='$FOO'"

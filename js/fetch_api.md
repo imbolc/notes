@@ -7,6 +7,7 @@ Error handling
 try {
     const r = await fetch("/foo", {
         headers: {
+            // The header isn't strictly necessary
             "Accept": "application/json",
         },
     })

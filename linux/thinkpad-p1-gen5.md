@@ -252,6 +252,7 @@ cargo install --locked \
     rusty-hook \
     skim \
     sqlx-cli \
+    starship \
     stylua \
     taplo-cli \
     tealdeer \

@@ -4,7 +4,10 @@
 local lang = {
 	name = "Lua",
 	greet = function(self)
-		print(string.format("Hey, %s!", self.name))
+		print(self:greeting())
+	end,
+	greeting = function(self)
+		return string.format("Hey, %s!", self.name)
 	end,
 }
 lang:greet()

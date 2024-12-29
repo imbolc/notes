@@ -1,7 +1,7 @@
 //! ```cargo
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
-//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres"] }
 //! ```
 use sqlx::Row;
 
@@ -45,13 +45,6 @@ async fn main() -> sqlx::Result<()> {
             .get::<Color, _>("color"),
         Color::Red
     );
-
-    // But for querying by an array we have to implement this trait
-    impl sqlx::postgres::PgHasArrayType for Color {
-        fn array_type_info() -> sqlx::postgres::PgTypeInfo {
-            sqlx::postgres::PgTypeInfo::with_name("_color")
-        }
-    }
 
     assert_eq!(
         sqlx::query("SELECT color FROM colors WHERE color = ANY($1::color[])")

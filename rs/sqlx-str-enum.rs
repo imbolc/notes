@@ -2,10 +2,10 @@
 //! ```cargo
 //! [dependencies]
 //! tokio = { version = "1", features = ["full"] }
-//! sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
+//! sqlx = { version = "0.8", features = ["runtime-tokio-native-tls", "postgres"] }
 //! ```
 
-#[derive(Debug, PartialEq, sqlx::Type)]
+#[derive(Debug, Clone, Copy, PartialEq, sqlx::Type)]
 #[sqlx(type_name = "text")]
 pub enum Answer {
     #[sqlx(rename = "Y")]
