@@ -25,22 +25,22 @@ async fn main() -> sqlx::Result<()> {
     let mut stream = sqlx::query_as!(
         Person,
         r#"
-        WITH people ("id", "name") AS (VALUES
+        WITH person ("id", "name") AS (VALUES
             (1, 'Alice'),
             (2, 'Bob'),
             (3, 'Carol'),
             (4, 'Dave')
         )
         SELECT
-            p.id as "id!",
-            p.name as "name!"
-        FROM people p
+            id as "id!",
+            name as "name!"
+        FROM person
         "#,
     )
     .fetch(&db);
 
     while let Some(person) = stream.try_next().await? {
-        dbg!(person);
+        println!("{:?}", person);
     }
 
     Ok(())
