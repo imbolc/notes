@@ -117,6 +117,7 @@ sudo apt install \
   llvm \
   make \
   mc \
+  mold \
   mosh \
   ncdu \
   nodejs \

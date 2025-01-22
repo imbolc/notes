@@ -1,4 +1,5 @@
 // Working with files in Rust
+use std::io::Write;
 
 fn main() -> std::io::Result<()> {
     let filename = "/tmp/files-rs.txt";
@@ -9,14 +10,11 @@ fn main() -> std::io::Result<()> {
     // write into a file
     // std::fs::write(filename, "foo\n")?;
 
-    // Read the file into a string
-    let _content = std::fs::read_to_string(filename)?;
-
-    // Read the file as bytes
-    let _bytes = std::fs::read(filename)?;
+    // Rewrite a file
+    let mut f = std::fs::File::create(filename)?;
+    f.write_all(b"foo\n")?;
 
     // Append a few lines to the file
-    use std::io::Write;
     let mut f = std::fs::OpenOptions::new().append(true).open(filename)?;
     f.write_all(b"bar\n")?;
     f.write_all(b"baz\n")?;
@@ -30,6 +28,12 @@ fn main() -> std::io::Result<()> {
             println!("line by line: {}", line);
         }
     }
+
+    // Read the file into a string
+    let _content = std::fs::read_to_string(filename)?;
+
+    // Read the file as bytes
+    let _bytes = std::fs::read(filename)?;
 
     dbg!(rel_path("foo/foo.log")?);
     dbg!(exe_name());
