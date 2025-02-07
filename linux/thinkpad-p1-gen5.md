@@ -111,6 +111,7 @@ sudo apt install \
 sudo apt install \
   aria2 \
   build-essential \
+  bash-completion \
   git \
   highlight \
   htop \
@@ -223,6 +224,8 @@ done
 
 ### Rust
 ```bash
+sudo apt install musl-tools
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup target add x86_64-unknown-linux-musl
 rustup component add rustfmt clippy rust-src rust-analyzer
