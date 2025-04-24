@@ -1,6 +1,6 @@
 # Supplements
 
-- all supplements are vegan
+Experiment - 10g of Glycine daily, before bed, started 2025-03-09
 
 ## Morning
 
@@ -69,6 +69,15 @@
 | Vitamin D3          | 400 IU              | aging, allergy                         | winter only               |
 | Vitamin K2 MK-4     | 45 mg               | aging, bones                           |                           |
 | Vitamin K2 MK-7     | 200 mcg             | aging, bones                           |                           |
+
+## Vegan Supplements 2025-02-27
+
+| Nutrient  | Perplexity | Grok       | GPT         | DeepSeek    |
+|-----------|------------|------------|-------------|-------------|
+| B12       | 50 mcg     | 25-100 mcg | 100-250 mcg | 50-100 mcg  |
+| D3        | 2000 UI    | 600 UI     | 600-2000 UI | 600-2000 UI |
+| DHA + EPA | 250-500 mg | 200-300 mg | 250-500 mcg | 250-500 mcg |
+| Iodine    | 150 mcg    | 150 mcg    | 150 mcg     | 150 mcg     |
 
 
 [alcar-brand]: https://iherb.com/pr/mrm-nutrition-acetyl-l-carnitine-60-vegan-capsules/41351
