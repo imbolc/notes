@@ -9,8 +9,8 @@ fn main() {
     print_iterator(PowerOfTwo::default());
 }
 
-/// Accepting iterator - `IntoIterator` let's you pass anything convertable into iterator
-/// including arrays, slices and vectors
+/// Accepting iterator - `IntoIterator` let's you pass anything convertible into
+/// iterator including arrays, slices and vectors
 fn print_iterator(items: impl IntoIterator<Item = impl Display>) {
     for item in items.into_iter() {
         println!("{item}");

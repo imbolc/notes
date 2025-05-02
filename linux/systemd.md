@@ -1,9 +1,39 @@
 # Systemd
 
+## Remove a service
 
-## Timers
+```sh
+REMOVE_SERVICE=foo
 
-Timers added by creating two files which the same name, but different extensions:
+sudo systemctl stop $REMOVE_SERVICE.service
+sudo systemctl disable $REMOVE_SERVICE.service
+sudo rm /etc/systemd/system/$REMOVE_SERVICE.service
+
+sudo systemctl daemon-reload
+sudo systemctl list-units | grep $REMOVE_SERVICE
+```
+
+## Remove a timer
+
+```sh
+REMOVE_SERVICE=foo
+
+sudo systemctl stop $REMOVE_SERVICE.timer
+sudo systemctl disable $REMOVE_SERVICE.timer
+sudo rm /etc/systemd/system/$REMOVE_SERVICE.timer
+
+sudo systemctl stop $REMOVE_SERVICE.service
+sudo systemctl disable $REMOVE_SERVICE.service
+sudo rm /etc/systemd/system/$REMOVE_SERVICE.service
+
+sudo systemctl daemon-reload
+sudo systemctl list-units | grep $REMOVE_SERVICE
+```
+
+## Create a timer
+
+Timers added by creating two files which the same name, but different
+extensions:
 
 - `foo.service` - the one-shot service that runs the intended command
 - `foo.timer` - that's specifies the timer behaviour
@@ -18,7 +48,8 @@ systemctl list-timers                    # List all started timers
 
 ### A timer example
 
-Let's create a one-shot greeting service that prints a string into the system journal:
+Let's create a one-shot greeting service that prints a string into the system
+journal:
 
 ```bash
 sudo tee /etc/systemd/system/hello.service > /dev/null << EOF
@@ -35,8 +66,9 @@ sudo systemctl start hello
 sudo journalctl -u hello
 ```
 
-Now let's create the corresponding timer to automatically run the service every second.
-Timer bound to the service by the filename `hello.timer` starts `hello.service`.
+Now let's create the corresponding timer to automatically run the service every
+second. Timer bound to the service by the filename `hello.timer` starts
+`hello.service`.
 
 ```bash
 sudo tee /etc/systemd/system/hello.timer > /dev/null << EOF
@@ -60,7 +92,8 @@ sudo systemctl daemon-reload  # Reload systemd configs after modification
 sudo systemctl enable --now hello.timer
 ```
 
-And watch the system journal for the greeting messages appearing every 5 seconds:
+And watch the system journal for the greeting messages appearing every 5
+seconds:
 
 ```sh
 sudo journalctl -f -u hello
