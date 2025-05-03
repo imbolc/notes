@@ -1,0 +1,25 @@
+<h1>A simpler wrapper to set / cancel timeouts</h1>
+
+<script>
+  const timer = {
+    id: null,
+    set(secs, job) {
+      this.cancel();
+      this.id = setTimeout(() => {
+        this.id = null;
+        job();
+      }, secs * 1000);
+    },
+    cancel() {
+      clearTimeout(this.id);
+      this.id = null;
+    },
+  };
+
+  timer.set(10, () =>
+    console.log(
+      "This will never run, as it's rewritten by the subsequent `set` call",
+    ),
+  );
+  timer.set(3, () => console.log("This will appear in 3 seconds"));
+</script>

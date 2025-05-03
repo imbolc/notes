@@ -1,34 +1,41 @@
 # Install Debian 12 Bookworm on ThinkPad P1 Gen 5
 
 ## From root
+
 ```bash
 apt update && apt upgrade -y
 ```
+
 ### Vimification
+
 ```bash
 apt install curl
 bash <(curl -sL https://raw.github.com/imbolc/server-setup/master/partials/vimification.sh)
 bash
 ```
+
 ### Disable sudo password for the main user
+
 ```bash
 read -p "Enter a username for sudo user: " -i user -e sudo_user
 echo "$sudo_user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$sudo_user
 ```
 
 ### Hybrid graphics
+
 I don't use hybrid graphics as it doesn't allow to connect an external display
 
 ```bash
 apt install -y bumblebee-nvidia primus mesa-utils xserver-xorg-input-mouse
 ln -s /usr/share/X11/xorg.conf.d /etc/bumblebee/
 ```
+
 Uncomment `BusID` in `/etc/bumblebee/xorg.conf.nvidia`
 
-
 ### Locales
+
 ```bash
-apt install -y locales 
+apt install -y locales
 echo "LANG=en_DK.UTF-8" > /etc/default/locale
 cat > /etc/locale.gen << EOF
 en_DK.UTF-8 UTF-8
@@ -39,6 +46,7 @@ EOF
 ```
 
 ### Restart the system
+
 ```bash
 systemctl reboot
 ```
@@ -48,21 +56,26 @@ systemctl reboot
 ### Test hybrid graphics
 
 Integrated card
+
 ```bash
 glxinfo | grep "OpenGL renderer"
 ```
+
 Nvidia card
+
 ```bash
 optirun glxinfo | grep "OpenGL renderer"
 ```
 
 ### Qt apps scaling
+
 ```bash
 echo 'GDK_SCALE=2' | sudo tee -a /etc/environment
 echo 'QT_SCALE_FACTOR=2' | sudo tee -a /etc/environment
 ```
 
 ### Copy dotfiles
+
 ```bash
 cd
 git clone git@github.com:imbolc/dotfiles.git
@@ -72,8 +85,8 @@ git diff # check changes first
 git checkout .
 ```
 
-
 ### Link data folders to `/data`
+
 ```bash
 cd
 for src in Desktop Documents Downloads Music Pictures Videos
@@ -87,6 +100,7 @@ done
 ```
 
 ### Libs
+
 ```bash
 sudo apt install \
   libbz2-dev \
@@ -107,6 +121,7 @@ sudo apt install \
 ```
 
 ### CLI tools
+
 ```bash
 sudo apt install \
   aria2 \
@@ -137,16 +152,19 @@ sudo apt install \
 ```
 
 ### Postgres
+
 ```bash
 sudo apt install postgresql
 ```
 
 Enable password-less access
+
 ```bash
 sudo su postgres -c "cd /; createuser -s $USER"
 ```
 
 Move the db files to data drive
+
 ```bash
 sudo systemctl stop postgresql
 sudo mkdir /data/dbs
@@ -156,6 +174,7 @@ sudo systemctl start postgresql
 ```
 
 ### GUI apps
+
 ```bash
 sudo apt install \
   android-file-transfer \
@@ -170,11 +189,13 @@ sudo apt install \
   vlc \
   xclip \
 ```
+
 Set `flameshot gui` on `PrtSrc`
 
 ### Vim
+
 ```bash
-sudo apt remove -y vim 
+sudo apt remove -y vim
 sudo curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o /usr/local/bin/vim
 sudo chmod +x /usr/local/bin/vim
 
@@ -186,6 +207,7 @@ vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
 ### Limit CPU performance
+
 ```bash
 sudo apt install powercap-utils
 sudo tee /etc/systemd/system/cpu-powercap.service > /dev/null << EOF
@@ -206,8 +228,8 @@ sudo systemctl start cpu-powercap
 sudo systemctl status cpu-powercap
 ```
 
-
 ### Create code folders
+
 ```bash
 cd
 sudo mkdir -p /data/0
@@ -221,8 +243,8 @@ do
 done
 ```
 
-
 ### Rust
+
 ```bash
 sudo apt install musl-tools
 
@@ -230,36 +252,26 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup target add x86_64-unknown-linux-musl
 rustup component add rustfmt clippy rust-src rust-analyzer
 
-# joshuto release is too old
-cargo install --git https://github.com/kamiyaa/joshuto.git --force
-
 cargo install --locked \
     alacritty \
     bat \
-    bottom \
     cargo-expand \
     cargo-generate \
     cargo-limit \
     cargo-machete \
-    cargo-make \
-    cargo-outdated \
-    cargo-readme \
     cargo-sort \
-    cargo-sync-readme \
+    cargo-tree \
     cargo-watch \
     comrak \
     fd-find \
     git-delta \
-    mask \
+    jaq \
     ripgrep \
     rust-script \
-    rusty-hook \
     skim \
     sqlx-cli \
-    starship \
     stylua \
     taplo-cli \
-    tealdeer \
     typos-cli \
 ```
 

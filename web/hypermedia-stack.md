@@ -20,6 +20,7 @@
   extractor and middleware based axum layouts
 - [Pinkie](https://github.com/necauqua/pinkie) - a simple scoped CSS generator
   for Rust
+- [vy](https://github.com/jonahlund/vy) - Rustfmt compatible templating library
 
 # Articles
 
@@ -27,3 +28,8 @@
       [Building a fast website with the MASH stack in Rust](https://emschwartz.me/building-a-fast-website-with-the-mash-stack-in-rust/)
 - [ ] 2025-01-19
       [The HARM Stack (HTMX, Axum/AlpineJS, Rust, Maud) Considered Unharmful](https://nguyenhuythanh.com/posts/the-harm-stack-considered-unharmful/)
+
+## HTMx
+
+- [ ] [htmx-global-indicator](https://github.com/dakixr/htmx-global-indicator) -
+      automatic loading indicator scoped to swapped areas
