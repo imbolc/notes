@@ -3,11 +3,22 @@
 ## SQL Dump
 
 - it creates a consistent dump of database at the running time
-- this dump procedure doesn't block other database operations,
-  except of those that need exclusive lock (e.g. `ALTER TABLE`)
+- this dump procedure doesn't block other database operations, except of those
+  that need exclusive lock (e.g. `ALTER TABLE`)
 - it usually can be restored into newer postgres version
-- it's the only method to transfer a database to another
-  hardware architecture (e.g. 32bit to 64bit)
+- it's the only method to transfer a database to another hardware architecture
+  (e.g. 32bit to 64bit)
+
+### Custom format
+
+Custom format is compressed by default.
+
+```sh
+pg_dump -Fc -d dbname -f ./dbname.pgcustom
+pg_restore -d dbname --no-owner --no-privileges ./dbname.pgcustom
+```
+
+### Text format
 
 ```sh
 DB=dbname bash -c 'pg_dump -O $DB | xz -T0 > $DB.sql.xz'
@@ -15,19 +26,19 @@ DB=dbname bash -c 'unxz -c $DB.sql.xz | psql $DB'
 ```
 
 ```sh
-pg_dump --no-owner --no-acl dbname | gzip > "dump-$(date -u +"%Y-%m-%dT%H:%M:%SZ").sql.gz"
+pg_dump --no-owner --no-acl dbname | gzip >"dump-$(date -u +"%Y-%m-%dT%H:%M:%SZ").sql.gz"
 gunzip -c dump.sql.gz | psql dbname
 ```
 
 ## Continuous Archiving and Point-in-Time Recovery (PITR)
 
-- `pg_dump` **can NOT** be used as a starting point (base backup)
-  for this type of recovery while inconsistent file system backup can
+- `pg_dump` **can NOT** be used as a starting point (base backup) for this type
+  of recovery while inconsistent file system backup can
 - archiving of WAL files should be started before the base backup
-- `archive_command` isn't a suitable way to do backup as it runs only
-  after a segment file is completed or due to `active_timout`. So in case of
-  a crush the incomplete segment, containing last transactions, can be lost.
-  So we'll be using `pg_receivewal` to stream WAL files.
+- `archive_command` isn't a suitable way to do backup as it runs only after a
+  segment file is completed or due to `active_timout`. So in case of a crush the
+  incomplete segment, containing last transactions, can be lost. So we'll be
+  using `pg_receivewal` to stream WAL files.
 
 Set `postgresql.conf` parameters:
 
@@ -42,10 +53,9 @@ Restart the db.
 
 ### Receivewal
 
-To avoid losing of last incomplete WAL segment using `archive_command`,
-we'll `pg_receivewal` to stream even unfinished WAL segments.
-When we start it first time with a particular slot it will start fetching
-from the current WAL segment.
+To avoid losing of last incomplete WAL segment using `archive_command`, we'll
+`pg_receivewal` to stream even unfinished WAL segments. When we start it first
+time with a particular slot it will start fetching from the current WAL segment.
 
 The purpose of _replication slot_ is to track how much WAL files is necessary to
 keep for a particular standby synchronization. Let's create one:
@@ -70,8 +80,8 @@ EOF
 
 ### Receivewal monitoring
 
-We can look at active streaming by `select * from pg_stat_replication;`
-It shows **only connected**
+We can look at active streaming by `select * from pg_stat_replication;` It shows
+**only connected**
 
 - `state` - should be `streaming`
 - `write_lag` - shouldn't be too big up to 10 seconds or something

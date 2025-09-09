@@ -1,0 +1,17 @@
+<h1>Inline script</h1>
+
+<p>An inline script can be bound to the parent html element.</p>
+
+<div>
+  <output></output>
+  <script data-cfg='{"foo": "bar"}'>
+    // Scoping is necessary, other way it would pollute the global scope
+    (() => {
+      let $parent = document.currentScript.parentElement;
+      let $output = $parent.querySelector("output");
+
+      const cfg = JSON.parse(document.currentScript.dataset.cfg);
+      $output.textContent = `The script is called with the config: ${JSON.stringify(cfg)}`;
+    })();
+  </script>
+</div>
