@@ -90,7 +90,14 @@ sudo apt install \
 sudo apt install -y postgresql
 sudo su postgres -c "cd /; createuser -s $USER"
 
-# Nvidia driver
+# Autostart
+ln -s ~/.local/share/applications/alacritty.desktop ~/.config/autostart/
+
+# Mate hotkeys
+gsettings set com.solus-project.brisk-menu hot-key '<Alt>space'                     # Set brisk-menu launcher to Alt+Space
+gsettings set org.mate.Marco.keybinding-commands command-screenshot 'flameshot gui' # Make Flameshot a default screenshoter
+
+# Nvidia driver (doesn't work with external display)
 
 sudo tee /etc/apt/sources.list >/dev/null <<EOF
 deb http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
@@ -99,10 +106,3 @@ deb http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-
 EOF
 sudo apt update
 sudo apt install -y nvidia-driver firmware-misc-nonfree
-
-# Autostart
-ln -s ~/.local/share/applications/alacritty.desktop ~/.config/autostart/
-
-# Mate hotkeys
-gsettings set com.solus-project.brisk-menu hot-key '<Alt>space'                     # Set brisk-menu launcher to Alt+Space
-gsettings set org.mate.Marco.keybinding-commands command-screenshot 'flameshot gui' # Make Flameshot a default screenshoter
