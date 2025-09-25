@@ -1,0 +1,5 @@
+root = true
+
+[*.sh]
+# Heredoc indentation with `<<-EOF` works for tabs only
+indent_style = tab
