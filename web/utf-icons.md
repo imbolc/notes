@@ -3,6 +3,7 @@
 - ✓ - done
 - ⌛- wait
 - 🗑- remove
-- 📋| 🗐 | ⎘ - copy
+- 📋🗐⎘ - copy
 - 🐛- bug
 - └ - nested element
+- 🔎🔍 - search
