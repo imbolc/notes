@@ -105,4 +105,5 @@ deb http://security.debian.org/debian-security trixie-security main contrib non-
 deb http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
 EOF
 sudo apt update
+sudo apt install linux-headers-"$(uname -r)"
 sudo apt install -y nvidia-driver firmware-misc-nonfree
