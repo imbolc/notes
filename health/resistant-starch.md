@@ -1,9 +1,10 @@
 # Resistant starch
 
-- **keto-friendly**: doesn't break down into glucose in the small intestine
+- **low-carb / keto-friendly**: doesn't break down into glucose in the small
+  intestine
 - **prebiotic**: feeds gut bacteria
-- **recommended intake**: 1-2 tbsp (10-20g) daily
-- **gelatizes at ~60°C** and becomes digestible
+- **typical supplement range**: start with 1 tbsp and increase to 2 in a week
+- **gelatinizes at ~60°C** and becomes digestible
 
 ## Limited scientific evidence benefits
 
@@ -38,3 +39,10 @@ Use with:
   - repeat 2-3 times
 - dry for 1-2 days
 - optionally grind, but avoid heating in the process
+
+### Bought potato starch test
+
+- squeak test: rub it between fingers - it should feel crunchy and make a faint
+  squeaking sound
+- water test: mix into cold water - should not dissolve, but settle in 20 min
+  with clean water on top
