@@ -1,13 +1,16 @@
-Check the code for:
+Run `git diff main` and review the changes for:
 
-- bugs
-- typos
-- clarity and conciseness of comments/text messages
-- good variable naming
-- idiomatic usage
-- adherence to best practices
+- Bugs
+- Typos
+- Variable naming
+- Idiomatic usage
+- Best-practice compliance
+- Performance issues
+- Duplicated code from elsewhere in the codebase
+- Clear, concise comments and user-facing messages
 
-For any issues found, provide a code diff instead of the full code.
+Skip anything that's fine. If it's not an issue, don't mention it. Don't
+describe what the code does. Don't describe what you checked. If everything
+looks good, just say so.
 
-Skip good parts. If it's not an issue DON'T mention it. Don't describe what the
-code does. Don't describe what you've checked. If everything is ok, just say so.
+List issues with unique IDs. Group issues by the categories above.

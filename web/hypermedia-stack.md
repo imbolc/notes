@@ -1,6 +1,7 @@
 # Hypermedia based app stack
 
-- [HTMX](https://htmx.org/)
+- [HTMx](https://htmx.org/)
+- [Nomini](https://nomini.js.org/docs/) 2kb alternative to HTMx
 
 ## CSS
 

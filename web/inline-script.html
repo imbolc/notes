@@ -12,6 +12,24 @@
 
       const cfg = JSON.parse(document.currentScript.dataset.cfg);
       $output.textContent = `The script is called with the config: ${JSON.stringify(cfg)}`;
+
+      // === Listening to global events with resubscription on the script reload
+      const abortKey = Symbol.for("my_project:my_script:abort"); // An unique per-script key
+      window[abortKey]?.abort();
+      window[abortKey] = new AbortController();
+
+      document.addEventListener(
+        "click",
+        (evt) => console.log("Document click:", evt),
+        { signal: window[abortKey].signal },
+      );
+
+      // The same abort key could be used for multiple events
+      document.addEventListener(
+        "keydown",
+        (evt) => console.log("Document keydown:", evt),
+        { signal: window[abortKey].signal },
+      );
     })();
   </script>
 </div>

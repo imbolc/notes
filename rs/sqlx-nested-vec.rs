@@ -39,7 +39,7 @@ async fn main() -> sqlx::Result<()> {
             p.id as "id!",
             p.name as "name!",
             (SELECT ARRAY (
-                SELECT (f.id, f.name) as "Followee"
+                SELECT (f.id, f.name)
                 FROM people f
                 WHERE f.id = any(p.follows)
             )) as "follows!: Vec<Followee>"

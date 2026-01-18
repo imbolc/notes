@@ -15,7 +15,7 @@ English speaker.
 
 ## Option: just correction without explanation
 
-Consider each message in this thread a request for writing correction
+Consider each message in this thread a request for writing correction.
 
 - Make it sound as natural as possible to US English speakers
 - Check for idiomatic US English usage and rephrase if there are better

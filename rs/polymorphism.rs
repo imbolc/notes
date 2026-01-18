@@ -14,7 +14,7 @@ fn main() {
 }
 
 // === Traits
-// We can accept anything as a trait objetc
+// We can accept anything as a trait object
 fn print_items(items: &[&dyn std::fmt::Display]) {
     for item in items {
         println!("{item}");
