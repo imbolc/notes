@@ -1,32 +1,35 @@
 # Telos
 
-<https://github.com/danielmiessler/Telos>
+Telos is a strategic articulation framework.
 
-- **What am I about? - Strategic articulation framework (Telos)**
-- What do I know? - Knowledge management (Obsidian)
-- What to do? - TODO lists, habit trackers
-- What did I do? - Journaling
+## Telos vs PKMs (Zettelkasten, Obsidian)
+
+- PKM: What do I know about X? How is X connected to Y?
+- Telos: What am I about? Where am I heading and how? Why am I doing this
+  particular thing?
 
 ## Structure
 
-Problem → Mission → Goals → Challenges → Strategies → Projects
+```
+Problems -> Mission -> (Narratives) -> Goals -> Challenges -> Strategies -> Projects -> Journal
+```
 
 - Problem: What's broken in the world that you actually care about?
 - Mission: What are you building or creating to address that problem?
-- Narrative: How would you explain the problem and the mission.
+- Narrative: How would you explain the problem and the mission?
 - Goal: Clear, measurable outcome you're working toward.
 - Challenge: A specific thing stopping you from making progress.
 - Strategy: A specific way you're addressing a challenge.
 - Project: The actual work you're doing in terms of a particular strategy.
 
-This structure gives you bottom to top connectivity. If you find yourself
-working on a project that isn't there:
+This structure traces projects back to core problems and mission. If you find
+yourself working on a project that isn't there:
 
 1. You need to drop the project, or
 2. You need to add a new goal because something you're doing reveals you care
    about something you haven't articulated yet
 
-## [to review] The Fabric Patterns
+## AI integration / Fabric Patterns
 
 - `extract_panel_topics` - "What could you possibly speak about at a
   conference?"
@@ -38,3 +41,11 @@ working on a project that isn't there:
 - `find_blind_spots` - What aren't you seeing in your thinking?
 - `threat_model_my_plans` - What could go wrong?
 - `red_team_thinking` - Attack your own ideas
+
+## Links
+
+- [Repo with examples](https://github.com/danielmiessler/Telos)
+- [Subset of Dan's personal Telos](https://danielmiessler.com/telos/)
+- [Podcast explanation by the author](https://www.youtube.com/watch?v=popvxbg9Flc)
+- [The wisdom project notes on the podcast](https://thewizdomproject.com/telos-dan-miessler)
+- [Fabric](https://github.com/danielmiessler/fabric)
