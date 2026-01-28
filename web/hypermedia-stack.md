@@ -34,3 +34,11 @@
 
 - [ ] [htmx-global-indicator](https://github.com/dakixr/htmx-global-indicator) -
       automatic loading indicator scoped to swapped areas
+
+## Cross-document view transition
+
+```css
+@view-transition {
+    navigation: auto;
+}
+```

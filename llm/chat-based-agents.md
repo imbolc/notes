@@ -32,15 +32,8 @@ suggested solution.
 
 ### Rust code
 
-After you're done with a Rust task, run the following without asking a
+After you're done with a Rust task, always run the following without asking a
 permission:
-
-Make checks pass:
-
-```sh
-cargo clippy --workspace --bins --examples --tests -- -D warnings
-cargo shear
-```
 
 Format the code:
 
@@ -48,6 +41,21 @@ Format the code:
 cargo +nightly fmt
 cargo sort --workspace
 ```
+
+Make checks pass:
+
+```sh
+cargo clippy --workspace --bins --examples --tests -- -D warnings
+cargo shear
+./.pre-commit.sh
+```
+
+#### Coding style
+
+- When using derive macros from external crates
+  - use fully qualified paths, e.g. `serde::Derialize`
+  - put external macros after built-in ones
+  - sort them if applicable
 
 ## Git
 

@@ -1,4 +1,9 @@
-Run `git diff main` and review the changes for:
+Run:
+
+- `git diff main`
+- `git show`
+
+Review the changes for:
 
 - Bugs
 - Typos
