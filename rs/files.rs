@@ -2,6 +2,9 @@
 use std::io::Write;
 
 fn main() -> std::io::Result<()> {
+    // mkdir -p
+    std::fs::create_dir_all("/tmp/folder-rs")?
+
     let filename = "/tmp/files-rs.txt";
 
     // check if the file exists
