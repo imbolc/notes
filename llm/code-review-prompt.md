@@ -1,7 +1,7 @@
 Run:
 
-- `git diff main`
-- `git show`
+- `git show` if in the `main` branch
+- `git diff main` if in another branch
 
 Review the changes for:
 

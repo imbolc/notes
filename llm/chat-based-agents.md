@@ -1,6 +1,4 @@
-# Repository Guidelines
-
-AGENTS.md for chat-based development.
+# AGENTS.md for chat-based development.
 
 Read ./README.md to understand the project goal.
 
@@ -23,14 +21,11 @@ suggested solution.
 - If you think a task is too complex to implement in one go, suggest splitting
   it into subtasks, provide the subtask graph, and recommend which one to start
   with
-
-## Coding Style
-
 - Write for humans - readability and simplicity are essential
 - Ask before making any optimization that makes the code more complicated or
   less readable
 
-### Rust code
+## Rust code
 
 After you're done with a Rust task, always run the following without asking a
 permission:
@@ -38,25 +33,28 @@ permission:
 Format the code:
 
 ```sh
+cargo sort
 cargo +nightly fmt
-cargo sort --workspace
 ```
 
 Make checks pass:
 
 ```sh
-cargo clippy --workspace --bins --examples --tests -- -D warnings
-cargo shear
 ./.pre-commit.sh
 ```
 
-#### Coding style
+### Style
 
-- When using derive macros from external crates
-  - use fully qualified paths, e.g. `serde::Derialize`
-  - put external macros after built-in ones
-  - sort them if applicable
+- Never just suffixes for `pub` like `pub(crate)
+
+#### Deriving macros from external crates
+
+- Use fully qualified paths, e.g. `serde::Derialize`
+- Put external macros after built-in ones
+- Sort them if possible
 
 ## Git
 
-Never ask to stage or commit anything
+- Don't look into files / folders included in `.gitignore`
+- Never ask to stage or commit anything, but after finishing a coding task,
+  suggest a commit message
