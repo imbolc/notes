@@ -43,13 +43,9 @@ Make checks pass:
 ./.pre-commit.sh
 ```
 
-### Style
+### Deriving macros from external crates
 
-- Never just suffixes for `pub` like `pub(crate)
-
-#### Deriving macros from external crates
-
-- Use fully qualified paths, e.g. `serde::Derialize`
+- Use fully qualified paths, e.g. `serde::Deserialize`
 - Put external macros after built-in ones
 - Sort them if possible
 

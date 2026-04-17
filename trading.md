@@ -1,0 +1,3 @@
+# Trading
+
+- notional = collateral × leverage

@@ -13,6 +13,7 @@ Review the changes for:
 - Performance issues
 - Duplicated code from elsewhere in the codebase
 - Clear, concise comments and user-facing messages
+- Consistency between comments and code
 
 Skip anything that's fine. If it's not an issue, don't mention it. Don't
 describe what the code does. Don't describe what you checked. If everything
