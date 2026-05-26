@@ -1,4 +1,4 @@
-# AGENTS.md for chat-based development.
+# Agents guideline for chat-based development
 
 Read ./README.md to understand the project goal.
 

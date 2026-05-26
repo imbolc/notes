@@ -331,3 +331,15 @@ sudo systemctl daemon-reload
 sudo systemctl enable mnt-yandexdisk.automount
 sudo systemctl start mnt-yandexdisk.automount
 ```
+
+CPU cap
+
+```sh
+sudo sh -c '
+p=/sys/class/powercap/intel-rapl:0
+echo 12000000 > "$p/constraint_0_power_limit_uw"
+echo 18000000 > "$p/constraint_1_power_limit_uw"
+[ -w "$p/constraint_2_power_limit_uw" ] && echo 35000000 > "$p/constraint_2_power_limit_uw"
+'
+```
+
