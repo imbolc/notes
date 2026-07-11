@@ -18,7 +18,7 @@ bash
 
 ```bash
 read -p "Enter a username for sudo user: " -i user -e sudo_user
-echo "$sudo_user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$sudo_user
+echo "$sudo_user ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/$sudo_user
 ```
 
 ### Hybrid graphics
@@ -36,8 +36,8 @@ Uncomment `BusID` in `/etc/bumblebee/xorg.conf.nvidia`
 
 ```bash
 apt install -y locales
-echo "LANG=en_DK.UTF-8" > /etc/default/locale
-cat > /etc/locale.gen << EOF
+echo "LANG=en_DK.UTF-8" >/etc/default/locale
+cat >/etc/locale.gen <<EOF
 en_DK.UTF-8 UTF-8
 en_US.UTF-8 UTF-8
 ru_RU.UTF-8 UTF-8
@@ -89,13 +89,12 @@ git checkout .
 
 ```bash
 cd
-for src in Desktop Documents Downloads Music Pictures Videos
-do
-    dst=/data/$src
-    sudo mkdir -p $dst
-    sudo chown $USER:$USER $dst
-    rmdir $src
-    ln -s $dst
+for src in Desktop Documents Downloads Music Pictures Videos; do
+	dst=/data/$src
+	sudo mkdir -p $dst
+	sudo chown $USER:$USER $dst
+	rmdir $src
+	ln -s $dst
 done
 ```
 
@@ -103,52 +102,52 @@ done
 
 ```bash
 sudo apt install \
-  libbz2-dev \
-  libcairo2 \
-  libffi-dev \
-  liblzma-dev \
-  libncursesw5-dev \
-  libpango1.0-0 \
-  libreadline-dev \
-  libsqlite3-dev  \
-  libssl-dev \
-  libsystemd-dev \
-  libxml2-dev \
-  libxmlsec1-dev \
-  tk-dev \
-  xsct \
-  zlib1g-dev \
+	libbz2-dev \
+	libcairo2 \
+	libffi-dev \
+	liblzma-dev \
+	libncursesw5-dev \
+	libpango1.0-0 \
+	libreadline-dev \
+	libsqlite3-dev \
+	libssl-dev \
+	libsystemd-dev \
+	libxml2-dev \
+	libxmlsec1-dev \
+	tk-dev \
+	xsct \
+	zlib1g-dev
 ```
 
 ### CLI tools
 
 ```bash
 sudo apt install \
-  aria2 \
-  build-essential \
-  bash-completion \
-  git \
-  highlight \
-  htop \
-  llvm \
-  make \
-  mc \
-  mold \
-  mosh \
-  ncdu \
-  nodejs \
-  npm \
-  python3-pip \
-  python3-venv \
-  ranger \
-  redis \
-  rsync \
-  shfmt \
-  tmux \
-  tree \
-  wget \
-  wrk \
-  xz-utils \
+	aria2 \
+	build-essential \
+	bash-completion \
+	git \
+	highlight \
+	htop \
+	llvm \
+	make \
+	mc \
+	mold \
+	mosh \
+	ncdu \
+	nodejs \
+	npm \
+	python3-pip \
+	python3-venv \
+	ranger \
+	redis \
+	rsync \
+	shfmt \
+	tmux \
+	tree \
+	wget \
+	wrk \
+	xz-utils
 ```
 
 ### Postgres
@@ -177,17 +176,17 @@ sudo systemctl start postgresql
 
 ```bash
 sudo apt install \
-  android-file-transfer \
-  blueman \
-  flameshot \
-  gitk \
-  gnome-disk-utility \
-  keepassxc \
-  openvpn \
-  qbittorrent \
-  simplescreenrecorder \
-  vlc \
-  xclip \
+	android-file-transfer \
+	blueman \
+	flameshot \
+	gitk \
+	gnome-disk-utility \
+	keepassxc \
+	openvpn \
+	qbittorrent \
+	simplescreenrecorder \
+	vlc \
+	xclip
 ```
 
 Set `flameshot gui` on `PrtSrc`
@@ -210,7 +209,7 @@ vim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 ```bash
 sudo apt install powercap-utils
-sudo tee /etc/systemd/system/cpu-powercap.service > /dev/null << EOF
+sudo tee /etc/systemd/system/cpu-powercap.service >/dev/null <<EOF
 [Unit]
 Description=Limit CPU performance
 
@@ -236,10 +235,9 @@ sudo mkdir -p /data/0
 sudo chown $USER:$USER /data/0
 ln -s /data/0
 
-for dir in job open own
-do
-    mkdir -p /data/0/$dir
-    ln -s 0/$dir
+for dir in job open own; do
+	mkdir -p /data/0/$dir
+	ln -s 0/$dir
 done
 ```
 
@@ -253,26 +251,26 @@ rustup target add x86_64-unknown-linux-musl
 rustup component add rustfmt clippy rust-src rust-analyzer
 
 cargo install --locked \
-    alacritty \
-    bat \
-    cargo-expand \
-    cargo-generate \
-    cargo-limit \
-    cargo-machete \
-    cargo-sort \
-    cargo-tree \
-    cargo-watch \
-    comrak \
-    fd-find \
-    git-delta \
-    jaq \
-    ripgrep \
-    rust-script \
-    skim \
-    sqlx-cli \
-    stylua \
-    taplo-cli \
-    typos-cli \
+	alacritty \
+	bat \
+	cargo-expand \
+	cargo-generate \
+	cargo-limit \
+	cargo-machete \
+	cargo-sort \
+	cargo-tree \
+	cargo-watch \
+	comrak \
+	fd-find \
+	git-delta \
+	jaq \
+	ripgrep \
+	rust-script \
+	skim \
+	sqlx-cli \
+	stylua \
+	taplo-cli \
+	typos-cli
 ```
 
 ## Yandex-disk
@@ -288,7 +286,7 @@ echo 'https://webdav.yandex.ru USERNAME PASSWORD' | sudo tee -a /etc/davfs2/secr
 Create a mount unit
 
 ```bash
-cat << EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.mount
+cat <<EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.mount
 [Unit]
 Description=Mount Yandex Disk
 After=network-online.target
@@ -309,7 +307,7 @@ EOF
 Create an auto-mount unit
 
 ```bash
-cat << EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.automount
+cat <<EOF | sudo tee /etc/systemd/system/mnt-yandexdisk.automount
 [Unit]
 Description=Auto mount Yandex Disk
 After=network-online.target
@@ -337,9 +335,11 @@ CPU cap
 ```sh
 sudo sh -c '
 p=/sys/class/powercap/intel-rapl:0
-echo 12000000 > "$p/constraint_0_power_limit_uw"
-echo 18000000 > "$p/constraint_1_power_limit_uw"
-[ -w "$p/constraint_2_power_limit_uw" ] && echo 35000000 > "$p/constraint_2_power_limit_uw"
+
+echo 25000000 > "$p/constraint_0_power_limit_uw"  # long_term:  25 W
+echo 40000000 > "$p/constraint_1_power_limit_uw"  # short_term: 40 W
+
+[ -w "$p/constraint_2_power_limit_uw" ] &&
+    echo 55000000 > "$p/constraint_2_power_limit_uw"  # peak_power: 55 W
 '
 ```
-

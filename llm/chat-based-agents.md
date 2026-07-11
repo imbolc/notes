@@ -87,6 +87,9 @@ For multi-step tasks, state a brief plan:
 
 ## Rust code
 
+- If a Rust helper only constructs or classifies one local type, put it in that
+  type's `impl` instead of keeping it as a free function.
+
 After you're done with a Rust task, always run the following without asking a
 permission:
 
