@@ -85,6 +85,14 @@ For multi-step tasks, state a brief plan:
 3. [Step] → verify: [check]
 ```
 
+## Tool permissions
+
+- Assume the user isn't watching permission prompts. Before requesting
+  permission, look for a safe, in-scope command that is already allowed and
+  provides equivalent verification. Prefer an allowed full test suite over a
+  permission-gated single test; request permission only when no such alternative
+  exists.
+
 ## Rust code
 
 - If a Rust helper only constructs or classifies one local type, put it in that

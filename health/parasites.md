@@ -14,13 +14,14 @@ be taken with probiotics, other types an hour before probiotics.
 
 ## Step 0: preparation - 7-20 days
 
-- [NOW Foods, Digest Ultimate] - 1 capsules x 2 times a day
-- [NOW Foods, Serrapeptase, 27mg] - 1 capsules x 2 times a day
+- [NOW Foods, Digest Ultimate] - 2 capsules x 2-3 times a day
+- [NOW Foods, Serrapeptase, 27mg] - 1 capsules x 2-3 times a day
 - Probiotic - morning and evening without food
 - Enterosorbents - Zosteraceae - with probiotic
+- [Nutricost, Nattokinase, 100 mg (2,000 FU)] - 1 capsule before food
+
 - [TUDCA - 800 mg - 1-2 times a day with food
 - [NOW Foods, NAC With Selenium] - 600 mg - 1-2 with food
-- [Nutricost, Nattokinase, 100 mg (2,000 FU)] - 1 capsule before food
 - Milk thistle oil - 1 capsule with food
 
 ## Step 1: testing - 3 days

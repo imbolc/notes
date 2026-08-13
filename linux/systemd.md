@@ -30,6 +30,17 @@ sudo systemctl daemon-reload
 sudo systemctl list-units | grep $REMOVE_SERVICE
 ```
 
+## Remove a target
+
+```sh
+REMOVE_TARGET=foo
+
+sudo systemctl stop $REMOVE_TARGET.target
+sudo systemctl disable $REMOVE_TARGET.target
+sudo rm /etc/systemd/system/$REMOVE_TARGET.target
+sudo systemctl daemon-reload
+```
+
 ## Create a timer
 
 Timers added by creating two files which the same name, but different
@@ -41,9 +52,9 @@ extensions:
 ### Useful commands
 
 ```bash
-sudo systemctl enable --now foo.timer    # Enable and start a timer
-sudo systemctl disable --now foo.timer   # Stop and disable a timer
-systemctl list-timers                    # List all started timers
+sudo systemctl enable --now foo.timer  # Enable and start a timer
+sudo systemctl disable --now foo.timer # Stop and disable a timer
+systemctl list-timers                  # List all started timers
 ```
 
 ### A timer example
@@ -52,7 +63,7 @@ Let's create a one-shot greeting service that prints a string into the system
 journal:
 
 ```bash
-sudo tee /etc/systemd/system/hello.service > /dev/null << EOF
+sudo tee /etc/systemd/system/hello.service >/dev/null <<EOF
 [Service]
 Type=oneshot
 ExecStart=echo "Hey :)"
@@ -71,7 +82,7 @@ second. Timer bound to the service by the filename `hello.timer` starts
 `hello.service`.
 
 ```bash
-sudo tee /etc/systemd/system/hello.timer > /dev/null << EOF
+sudo tee /etc/systemd/system/hello.timer >/dev/null <<EOF
 [Timer]
 # Run the service 1 second after boot
 OnBootSec=1s
@@ -88,7 +99,7 @@ EOF
 Now we can enable the timer:
 
 ```bash
-sudo systemctl daemon-reload  # Reload systemd configs after modification
+sudo systemctl daemon-reload # Reload systemd configs after modification
 sudo systemctl enable --now hello.timer
 ```
 
