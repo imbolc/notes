@@ -1,44 +1,51 @@
-Git
-===
+# Git
 
 Remove the last commit:
+
 ```sh
 git reset HEAD~1
 git push --force
 ```
 
 Checkout GitHub pull request:
+
 ```sh
 gh pr checkout pull-request
 ```
 
 Squash merge
+
 ```sh
 git merge --squash bugfix
 git commit
 ```
 
-Statistic starting from a commit
+Statistic starting from a commit:
+
 ```sh
 git diff --stat <commit-hash> HEAD
 ```
 
 Add remote:
+
 ```sh
 git remote add site user@host:path
 ```
 
 Allow push to not bare master:
+
 ```sh
 git config receive.denyCurrentBranch updateInstead
 ```
 
 Add a tag to commit:
+
 ```sh
 git tag -a v1.0.0 -m "Some description"
 ```
 
 Delete a tag:
+
 ```sh
 git tag -d v1.0.0
 git push --delete origin v1.0.0
@@ -50,9 +57,7 @@ Merge only specific files from another branch:
 git checkout source_branch <paths>...
 ```
 
-
 Shallow clone: `git clone --depth 1 repo`
-
 
 Deployment with `post-receive` hook:
 
