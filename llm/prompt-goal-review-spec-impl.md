@@ -1,11 +1,5 @@
 # Goal: review a spec implementation
 
-Treat this request as self-contained. Ignore the active goal and all earlier
-conversation summaries, schemas, names, assumptions, and generated artifacts.
-Requirements may come only from this prompt and the tracked repository files I
-explicitly name. If required information is absent, ask me instead of deriving
-it from prior context.
-
 Reviewer models:
 
 ```csv
