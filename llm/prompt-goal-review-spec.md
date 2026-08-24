@@ -30,7 +30,7 @@ For each reviewer model run the loop:
       -c 'review_model="<reviewer model>"' \
       -c 'model_reasoning_effort="<reviewer reasoning effort>"' \
       review - 2>/dev/null <<'EOF'
-  Review `./crates/polydegen-market-recorder/SPEC-update.md`
+  Review `./crates/foo/SPEC.md`
   Don't review or validate the code, only the spec.
   Don't run checks or tests, assume they all valid.
   EOF
