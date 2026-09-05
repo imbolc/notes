@@ -1,4 +1,4 @@
-# Goal: review a spec implementation
+# Goal: review a spec
 
 Reviewer models:
 
@@ -10,6 +10,8 @@ gpt-5.6-terra,high
 gpt-5.6-terra,xhigh
 gpt-5.6-sol,high
 gpt-5.6-sol,xhigh
+gpt-5.6-sol,max
+gpt-5.6-sol,ultra
 ```
 
 For each reviewer model run the loop:
@@ -23,16 +25,21 @@ For each reviewer model run the loop:
       --model <reviewer model> \
       -c 'review_model="<reviewer model>"' \
       -c 'model_reasoning_effort="<reviewer reasoning effort>"' \
-      review - 2>/dev/null <<'EOF'
+      review '
   Review `./crates/foo/SPEC.md`
-  Don't review or validate the code, only the spec.
-  Don't run checks or tests, assume they all valid.
-  EOF
+  Do not review or validate the code, only the spec.
+  Do not run checks or tests, assume they all valid.
+  '
   ```
 
-- Evaluate its review. For each valuable finding, assign a severity: high,
-  medium or low.
-- Address every valuable finding of the review
+- Reject findings that are out of scope of the spec as not valuable. Don't let
+  the spec boundaries grow!
+- Evaluate valuable findings: for each finding assign a severity: high, medium
+  or low
+- Address every valuable finding of the review.
+- The spec is meant to be read by people. It should be as concise as possible
+  without excessive details. Don't repeat ideas twice.
+- Don't change any files except of the spec.
 - If you made changes commit them without asking for permission
 - Update the streak based on the highest-severity valuable finding:
   - high: reset streak to 0

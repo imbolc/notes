@@ -1,4 +1,4 @@
-# Agents guideline for chat-based development
+# Agent guideline for chat-based development
 
 Read ./README.md to understand the project goal.
 
@@ -122,6 +122,5 @@ Make checks pass:
 
 ## Git
 
-- Don't look into files / folders included in `.gitignore`
-- Never ask to stage or commit anything, but after finishing a coding task,
-  suggest a commit message
+- After changes, suggest a commit message and ask if you should commit the
+  changes
